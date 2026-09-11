@@ -1,0 +1,37 @@
+import { createServer } from "node:http";
+import { readFile } from "node:fs/promises";
+import { test } from "node:test";
+import assert from "node:assert/strict";
+
+async function servePortfolio() {
+  const server = createServer(async (request, response) => {
+    if (request.url !== "/") {
+      response.writeHead(404).end();
+      return;
+    }
+
+    try {
+      const page = await readFile("index.html");
+      response.writeHead(200, { "content-type": "text/html; charset=utf-8" }).end(page);
+    } catch {
+      response.writeHead(404).end();
+    }
+  });
+
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  return server;
+}
+
+test("serves Max's Chinese portfolio landing page", async t => {
+  const server = await servePortfolio();
+  t.after(() => server.close());
+  const { port } = server.address();
+
+  const response = await fetch(`http://127.0.0.1:${port}/`);
+  const page = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(page, /王博生/);
+  assert.match(page, /成果紀錄/);
+  assert.match(page, /TG-Type/);
+});
