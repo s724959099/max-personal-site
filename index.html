@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="王博生 Max Wang — Principal Engineer、Tech Lead、FDE。把複雜業務、技術組織與 AI workflow 做成可長期使用的系統" />
-  <meta name="theme-color" content="#f3f5f6" />
-  <title>王博生 Max Wang — Principal Engineer / FDE</title>
+  <meta name="description" content="王博生 Max Wang — Principal Engineer、Tech Lead、FDE。把複雜的業務流程與工程工作變成可持續的系統" />
+  <meta name="theme-color" content="#b9cbc2" />
+  <title>王博生 Max Wang — Principal Engineer / Tech Lead / FDE</title>
   <style>
     :root {
-      --ink: #20272e;
-      --muted: #66737d;
-      --soft: #96a0a8;
-      --canvas: #f3f5f6;
-      --surface: #fbfcfc;
-      --navy: #27333d;
-      --line: #cad3d9;
-      --accent: #a64e3e;
-      --success: #527665;
-      --warn: #9b762d;
-      --error: #a44848;
+      --ink: #13212d;
+      --ink-soft: #1f3440;
+      --muted: #38534f;
+      --canvas: #b9cbc2;
+      --surface: #dce8e1;
+      --paper: #f4f2ed;
+      --line: #6b8981;
+      --accent: #27b193;
+      --accent-dark: #127b68;
+      --success: #1d6f5f;
+      --warn: #947124;
+      --error: #a44943;
       --xs: 4px;
       --sm: 8px;
       --md: 12px;
@@ -37,152 +38,142 @@
 
     * { box-sizing: border-box; }
     html { color-scheme: light; scroll-behavior: smooth; }
-    body { margin: 0; overflow-x: hidden; background: var(--canvas); color: var(--ink); font-family: var(--body); line-height: 1.6; }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background-color: var(--canvas);
+      background-image: radial-gradient(color-mix(in srgb, var(--ink) 16%, transparent) 1px, transparent 1px);
+      background-size: var(--sm) var(--sm);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.65;
+    }
+
     a { color: inherit; }
-    .shell { width: min(100% - var(--xl) * 2, 1180px); margin: auto; }
+    .shell { width: min(100% - var(--xl) * 2, 1120px); margin: auto; }
     .eyebrow { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-    .section-title { margin: var(--sm) 0 0; font: 400 clamp(36px, 5vw, 60px) / 1 var(--display); letter-spacing: -.045em; text-wrap: balance; }
+    .section-title { margin: var(--sm) 0 0; font: 400 clamp(38px, 5vw, 64px) / .98 var(--display); letter-spacing: -.05em; text-wrap: balance; }
 
-    .skip-link { position: absolute; top: var(--sm); left: var(--sm); transform: translateY(-200%); padding: var(--sm) var(--md); background: var(--accent); color: var(--surface); border-radius: var(--radius-sm); }
+    .skip-link { position: absolute; top: var(--sm); left: var(--sm); transform: translateY(-200%); padding: var(--sm) var(--md); background: var(--ink); color: var(--paper); border-radius: var(--radius-sm); }
     .skip-link:focus { transform: translateY(0); }
-    .site-nav { display: flex; align-items: center; justify-content: space-between; min-height: calc(var(--3xl) + var(--lg)); border-bottom: .5px solid var(--line); }
+
+    .site-nav { display: flex; align-items: center; min-height: calc(var(--3xl) + var(--lg)); border-bottom: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); }
     .site-nav__name { font: 400 22px / 1 var(--display); letter-spacing: -.03em; text-decoration: none; }
-    .site-nav__links { display: flex; gap: var(--lg); font-size: 14px; }
-    .site-nav__links a { color: var(--muted); text-decoration: none; transition: color var(--speed) var(--ease); }
-    a:hover, a:focus-visible { color: var(--accent); outline: 2px solid var(--accent); outline-offset: var(--xs); }
 
-    .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: var(--3xl); padding: clamp(64px, 10vw, 128px) 0 var(--3xl); border-bottom: .5px solid var(--line); }
-    .hero h1 { max-width: 760px; margin: var(--lg) 0 var(--xl); font: 400 clamp(50px, 7vw, 88px) / .95 var(--display); letter-spacing: -.06em; text-wrap: balance; }
-    .hero__intro { max-width: 580px; margin: 0; color: var(--muted); font-size: 18px; }
-    .hero-note { align-self: end; padding-top: var(--xl); border-top: .5px solid var(--line); }
-    .hero-note h2 { margin: var(--sm) 0; font: 400 28px / 1.1 var(--display); letter-spacing: -.03em; }
-    .hero-note p { margin: 0; color: var(--muted); font-size: 14px; }
-    .actions { display: flex; flex-wrap: wrap; gap: var(--md); margin-top: var(--xl); }
-    .button { display: inline-flex; align-items: center; justify-content: center; min-height: calc(var(--2xl) + var(--md)); padding: 0 var(--lg); border-radius: var(--radius-sm); background: var(--accent); color: var(--surface); font: 500 14px var(--body); text-decoration: none; transition: opacity var(--speed) var(--ease); }
-    .button:hover, .button:focus-visible { color: var(--surface); opacity: .86; }
-    .text-link { align-self: center; color: var(--muted); font-size: 14px; text-underline-offset: var(--xs); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr); gap: var(--3xl); padding: clamp(64px, 11vw, 144px) 0 var(--3xl); border-bottom: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); }
+    .hero h1 { max-width: 770px; margin: var(--lg) 0 var(--xl); font: 400 clamp(54px, 7vw, 96px) / .92 var(--display); letter-spacing: -.065em; text-wrap: balance; }
+    .hero__summary { max-width: 620px; margin: 0; color: var(--ink-soft); font-size: 18px; }
+    .hero-principle { align-self: end; padding: var(--xl); background: var(--ink); border-radius: var(--radius-lg); color: var(--paper); }
+    .hero-principle h2 { margin: 0 0 var(--xl); font: 400 30px / 1.1 var(--display); letter-spacing: -.035em; }
+    .hero-principle dl { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: var(--sm) var(--md); margin: 0; padding-top: var(--lg); border-top: 1px solid color-mix(in srgb, var(--paper) 30%, transparent); font-size: 13px; }
+    .hero-principle dt { color: var(--accent); font-weight: 500; }
+    .hero-principle dd { margin: 0; color: color-mix(in srgb, var(--paper) 78%, transparent); }
 
-    .impact { padding: var(--3xl) 0; }
-    .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .6fr); gap: var(--xl); align-items: end; margin-bottom: var(--2xl); }
-    .section-heading p { max-width: 420px; margin: 0; color: var(--muted); }
-    .ledger { border-top: .5px solid var(--line); }
-    .ledger-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, .85fr); gap: var(--xl); padding: var(--xl) 0; border-bottom: .5px solid var(--line); }
-    .ledger-row > * { min-width: 0; }
-    .ledger-key { color: var(--accent); font: 400 25px / 1.1 var(--display); letter-spacing: -.02em; }
-    .ledger-row h3 { margin: 0; font: 400 28px / 1.1 var(--display); letter-spacing: -.03em; text-wrap: balance; }
-    .ledger-row p { margin: var(--sm) 0 0; color: var(--muted); }
-    .fact { color: var(--ink); font-size: 15px; }
-    .fact strong { display: block; margin-bottom: var(--xs); font-weight: 500; font-variant-numeric: tabular-nums; }
+    .signals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); }
+    .signal { min-width: 0; padding: var(--lg) var(--md); border-right: 1px solid color-mix(in srgb, var(--ink) 28%, transparent); }
+    .signal:first-child { padding-left: 0; }
+    .signal:last-child { border-right: 0; }
+    .signal b { display: block; font: 400 17px / 1.1 var(--display); letter-spacing: -.02em; }
+    .signal p { margin: var(--xs) 0 0; color: var(--muted); font-size: 12px; }
 
-    .work { padding: var(--3xl) 0; border-top: .5px solid var(--line); }
-    .case-list { border-top: .5px solid var(--line); }
-    .case { display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, .85fr); gap: var(--xl); padding: var(--xl) 0; border-bottom: .5px solid var(--line); opacity: .78; transition: opacity var(--speed) var(--ease), transform var(--speed) var(--ease); }
+    .work { padding: var(--3xl) 0; }
+    .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .58fr); gap: var(--xl); align-items: end; margin-bottom: var(--2xl); }
+    .section-heading p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+    .case { display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: var(--xl); padding: var(--2xl) 0; border-top: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); }
+    .case:last-child { border-bottom: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); }
     .case > * { min-width: 0; }
-    .case.is-visible { opacity: 1; transform: translateY(calc(var(--xs) * -1)); }
-    .case__meta { color: var(--muted); font-size: 14px; }
-    .case h3 { margin: 0; font: 400 28px / 1.1 var(--display); letter-spacing: -.03em; text-wrap: balance; }
-    .case p { margin: 0; color: var(--muted); }
-    .case__evidence { color: var(--accent); font-size: 14px; }
+    .case__meta { color: var(--muted); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+    .case__body { display: grid; gap: var(--xl); }
+    .case h3 { margin: 0; font: 400 clamp(30px, 4vw, 48px) / 1.05 var(--display); letter-spacing: -.045em; text-wrap: balance; }
+    .case__body > p { max-width: 760px; margin: 0; color: var(--ink-soft); font-size: 17px; }
+    .case__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--lg); }
+    .case__steps div { min-width: 0; padding-top: var(--lg); border-top: 1px solid color-mix(in srgb, var(--ink) 35%, transparent); }
+    .case__steps b { display: block; margin-bottom: var(--sm); color: var(--accent-dark); font-size: 14px; font-weight: 500; }
+    .case__steps p { margin: 0; color: var(--ink-soft); font-size: 14px; }
 
-    .approach { padding: var(--3xl) 0; background: var(--surface); }
-    .approach-inner { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--3xl); }
-    .principles { display: grid; }
-    .principle { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: var(--lg); padding: var(--lg) 0; border-top: .5px solid var(--line); }
-    .principle:last-child { border-bottom: .5px solid var(--line); }
-    .principle__number { color: var(--accent); font: 400 28px / 1 var(--display); }
-    .principle h3 { margin: 0; font-size: 16px; font-weight: 500; }
-    .principle p { margin: var(--xs) 0 0; color: var(--muted); font-size: 14px; }
+    .case--feature { margin: var(--xl) 0; padding: var(--2xl); background: var(--ink); border: 0; border-radius: var(--radius-lg); color: var(--paper); }
+    .case--feature .case__meta, .case--feature .case__body > p, .case--feature .case__steps p { color: color-mix(in srgb, var(--paper) 76%, transparent); }
+    .case--feature .case__steps div { border-color: color-mix(in srgb, var(--paper) 30%, transparent); }
+    .case--feature .case__steps b { color: var(--accent); }
 
-    .resume { padding: var(--3xl) 0; }
-    .resume-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--xl); margin-top: var(--2xl); }
-    .resume-item { min-width: 0; padding-top: var(--lg); border-top: .5px solid var(--line); }
-    .resume-item span { color: var(--muted); font-size: 13px; }
-    .resume-item h3 { margin: var(--sm) 0; font: 400 24px / 1.12 var(--display); letter-spacing: -.025em; }
-    .resume-item p { margin: 0; color: var(--muted); font-size: 14px; }
+    .closing { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--xl); align-items: end; padding: var(--3xl) 0; }
+    .closing h2 { max-width: 720px; margin: var(--sm) 0 0; font: 400 clamp(38px, 5vw, 64px) / .98 var(--display); letter-spacing: -.05em; text-wrap: balance; }
+    .resume-link { color: var(--accent-dark); font-size: 15px; text-underline-offset: var(--xs); }
+    .resume-link:hover, .resume-link:focus-visible { color: var(--ink); outline: 2px solid var(--accent-dark); outline-offset: var(--xs); }
+    .footer { padding: var(--xl) 0; border-top: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); color: var(--muted); font-size: 13px; }
 
-    .contact { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--xl); align-items: end; padding: var(--3xl) 0; border-top: .5px solid var(--line); }
-    .contact h2 { margin: var(--sm) 0 0; font: 400 clamp(34px, 5vw, 58px) / 1 var(--display); letter-spacing: -.045em; text-wrap: balance; }
-    .contact-links { display: flex; flex-wrap: wrap; justify-content: end; gap: var(--lg); color: var(--muted); font-size: 14px; }
-    .contact-links a { text-underline-offset: var(--xs); }
-    .site-footer { padding: var(--xl) 0; border-top: .5px solid var(--line); color: var(--soft); font-size: 13px; }
-
-    @media (max-width: 720px) {
-      .shell { width: min(100% - var(--lg) * 2, 1180px); }
-      .site-nav__links { gap: var(--md); }
-      .hero, .section-heading, .approach-inner, .contact { grid-template-columns: 1fr; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - var(--lg) * 2, 1120px); }
+      .hero, .section-heading, .closing, .case { grid-template-columns: 1fr; }
       .hero { padding-top: var(--3xl); }
-      .ledger-row, .case { grid-template-columns: 1fr; gap: var(--md); }
-      .resume-grid { grid-template-columns: 1fr; }
-      .contact-links { justify-content: start; }
+      .signals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signal:nth-child(2) { border-right: 0; }
+      .signal:nth-child(-n + 2) { border-bottom: 1px solid color-mix(in srgb, var(--ink) 28%, transparent); }
+      .signal:nth-child(3) { padding-left: 0; }
+      .case__steps { grid-template-columns: 1fr; }
     }
 
     @media (prefers-color-scheme: dark) {
-      :root { --ink: #edf1f3; --muted: #c0c9cf; --soft: #909aa2; --canvas: #20282f; --surface: #29343d; --navy: #151c22; --line: #485762; --accent: #dc8269; --success: #84aa92; --warn: #d0aa59; --error: #df7d7d; }
+      :root { --ink: #eaf2eb; --ink-soft: #d1dfd8; --muted: #a6c1b7; --canvas: #183036; --surface: #203c40; --paper: #f3f0e9; --line: #5f867c; --accent: #39c6a8; --accent-dark: #6dd4bd; }
       html { color-scheme: dark; }
+      body { background-image: radial-gradient(color-mix(in srgb, var(--paper) 16%, transparent) 1px, transparent 1px); }
+      .hero-principle, .case--feature { background: #102126; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .case { opacity: 1; transform: none; transition: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#content">跳到內容</a>
-  <div class="shell">
-    <nav class="site-nav" aria-label="主要導覽">
-      <a class="site-nav__name" href="#top">Max Wang</a>
-      <div class="site-nav__links"><a href="#work">精選工作</a><a href="#resume">完整履歷</a><a href="#contact">聯絡我</a></div>
-    </nav>
+  <main class="shell" id="content">
+    <nav class="site-nav" aria-label="網站識別"><a class="site-nav__name" href="#content">Max Wang</a></nav>
 
-    <main id="content">
-      <header class="hero" id="top">
-        <div>
-          <p class="eyebrow">Principal Engineer · Tech Lead · FDE</p>
-          <h1>讓複雜的營運<br>回到可掌握的系統</h1>
-          <p class="hero__intro">我是王博生（Max Wang），專注於核心業務平台、技術組織與 AI-native workflow，讓不確定的現場問題成為可交付、可維運的產品</p>
-          <div class="actions"><a class="button" href="#work">查看精選工作</a><a class="text-link" href="https://www.cake.me/resumes/s724959099">閱讀完整 Cake 履歷</a></div>
-        </div>
-        <aside class="hero-note"><p class="eyebrow">一句話定位</p><h2>從現場問題到能交付的產品</h2><p>不靠抽象自評，用系統、團隊與業務結果說話</p></aside>
-      </header>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Principal Engineer · Tech Lead · FDE</p>
+        <h1>把判斷放回系統</h1>
+        <p class="hero__summary">王博生 Max Wang，從一個 workflow 的摩擦開始，往下追到資料、工具與交付責任的邊界，把分散的工作變成團隊能長期使用的系統</p>
+      </div>
+      <aside class="hero-principle">
+        <h2>每個系統都應該回答<br>下一個人要怎麼接手</h2>
+        <dl><dt>Field</dt><dd>product × engineering</dd><dt>Method</dt><dd>observe → consolidate → verify</dd><dt>Bias</dt><dd>clear handoffs</dd></dl>
+      </aside>
+    </header>
 
-      <section class="impact" aria-labelledby="impact-title">
-        <div class="section-heading"><div><p class="eyebrow">Impact record</p><h2 class="section-title" id="impact-title">成果有脈絡<br>不需要放大喊話</h2></div><p>每一列保留一個可說清楚的結果與它背後的工作</p></div>
-        <div class="ledger">
-          <article class="ledger-row"><div class="ledger-key">核心平台</div><div><h3>把第三方工具拼裝，改成公司自己的營運系統</h3><p>設計 CRM 與 Workshop 平台，讓資料、流程與服務回到同一個核心</p></div><div class="fact"><strong>7,000+ Agent · 約 9,000 日活使用者</strong>CRM 與 Workshop 的實際服務範圍</div></article>
-          <article class="ledger-row"><div class="ledger-key">組織</div><div><h3>從一人開始，建立 18 人技術團隊</h3><p>招募、培訓、設立 lead，讓前後端、PM、設計可以用同一節奏交付</p></div><div class="fact"><strong>18 人團隊</strong>把個人開發能力轉成持續運作的組織能力</div></article>
-          <article class="ledger-row"><div class="ledger-key">成本</div><div><h3>收回核心系統與資料</h3><p>CRM 取代多個長期第三方訂閱，包含 HubSpot</p></div><div class="fact"><strong>每年省下超過 US$100,000</strong>數字回到句子裡，不做成互相擠壓的裝飾</div></article>
-          <article class="ledger-row"><div class="ledger-key">個人產品</div><div><h3>TG-Type 與 OMP Memory</h3><p>把隱私、可用性與 AI 協作的脈絡問題，做成自己日常真的會用的工具</p></div><div class="fact"><strong>10+ 年軟體交付</strong>從爬蟲、電商、金流物流到 AI 系統</div></article>
-        </div>
-      </section>
+    <section class="signals" aria-label="早期工程實踐">
+      <article class="signal"><b>Log / AI</b><p>把真問題與 false alerts 分開</p></article>
+      <article class="signal"><b>Review / CI</b><p>自動檢查後保留人工 handoff</p></article>
+      <article class="signal"><b>Report / Recurring</b><p>不再一直整理資料，讓時間回到判斷</p></article>
+      <article class="signal"><b>System / Ownership</b><p>把依賴收回可以持續演進的核心</p></article>
+    </section>
 
-      <section class="work" id="work" aria-labelledby="work-title">
-        <div class="section-heading"><div><p class="eyebrow">Selected work</p><h2 class="section-title" id="work-title">我在場，改變了什麼</h2></div><p>用案例呈現判斷與結果，不把產品做成一排 feature card</p></div>
-        <div class="case-list">
-          <article class="case"><div class="case__meta">2023 — 2026<br>Principal Engineer</div><div><h3>TransglobalUS：重建公司的營運核心</h3><p>主導 CRM + Workshop 平台，取代 iPipeline、HubSpot 等分散服務；建立 CI/CD、AI review、告警與需求簽核流程，並從一人擴編到 18 人團隊</p></div><div class="case__evidence">核心 CRM · Workshop · 18 人技術組織</div></article>
-          <article class="case"><div class="case__meta">Personal product<br>macOS</div><div><h3>TG-Type：讓語音輸入預設留在本機</h3><p>ASR 加上情境感知格式化、local-first 模型與不掉字 fallback，解決內容外流與輸出不完整的日常痛點</p></div><div class="case__evidence">p50 約 1.3 秒 · local-first</div></article>
-          <article class="case"><div class="case__meta">AI systems<br>Personal R&amp;D</div><div><h3>OMP Memory：把 AI context 當成可檢查的證據</h3><p>長期記憶包含 provenance、時間、信心與混合檢索訊號，避免跨 session 協作變成不可追溯的聊天紀錄</p></div><div class="case__evidence">Evidence-first · 可追溯 context</div></article>
-          <article class="case"><div class="case__meta">Previously built<br>R&amp;D</div><div><h3>Kodama：從 multi-agent 實驗留下的原則</h3><p>產品已停止運作，留下的結論是：真實環境的 AI 需要界線、責任、證據與最後的人類決策</p></div><div class="case__evidence">已停止的研究產品 · 原則保留</div></article>
-        </div>
-      </section>
-    </main>
-  </div>
+    <section class="work" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow">Case files / 01—04</p><h2 class="section-title" id="work-title">不是作品集縮圖<br>是四份可以讀懂取捨的工作檔案</h2></div><p>每個案例都留下原本卡在哪、做了什麼，以及後來真正能被接手的能力</p></div>
 
-  <section class="approach" aria-labelledby="approach-title"><div class="shell approach-inner"><div><p class="eyebrow">How I work</p><h2 class="section-title" id="approach-title">先理解現場<br>再把變化做小</h2></div><div class="principles"><article class="principle"><div class="principle__number">01</div><div><h3>先找真正的業務摩擦</h3><p>先理解流程、例外與責任邊界，才知道該做什麼</p></div></article><article class="principle"><div class="principle__number">02</div><div><h3>先做能被驗證的最小路徑</h3><p>用短週期 POC 取得真實回饋，不把三個月的假設一次押上</p></div></article><article class="principle"><div class="principle__number">03</div><div><h3>讓工具進得了團隊 workflow</h3><p>產品還要能 review、維運、交接，並被真正使用的人信任</p></div></article></div></div></section>
+      <article class="case case--feature">
+        <div class="case__meta">Case 01<br>TransglobalUS<br>2023—2026</div>
+        <div class="case__body"><h3>從全面依賴第三方，逐步收回自己的營運系統</h3><p>核心流程原本散在 iPipeline、HubSpot 與其他外部服務。不是一次重寫，而是把最重要的資料、流程與服務能力一段一段收回來，最後讓 CRM 與 Workshop 成為公司的工作核心</p><div class="case__steps"><div><b>原本</b><p>資料與 workflow 分散在外部工具，業務邏輯難以統一</p></div><div><b>做法</b><p>以 CRM 與 Workshop 承接核心流程，同步建立 AI log inspection、CI code review、human handoff 與驗證節奏</p></div><div><b>留下</b><p>7,000+ Agent、約 9,000 日活使用者、18 人技術團隊與可持續演進的核心平台</p></div></div></div>
+      </article>
 
-  <div class="shell">
-    <section class="resume" id="resume" aria-labelledby="resume-title"><div class="section-heading"><div><p class="eyebrow">Experience</p><h2 class="section-title" id="resume-title">完整職涯<br>快速掌握</h2></div><p>詳細技術與完整責任保留在 Cake 履歷，這裡保留職涯主線</p></div><div class="resume-grid"><article class="resume-item"><span>2023 — 2026 · TransglobalUS</span><h3>Principal Engineer</h3><p>核心平台、技術方向、18 人團隊、交付流程與 AI 輔助開發</p></article><article class="resume-item"><span>2022 — 2023 · 資旅軟體開發</span><h3>Tech Lead</h3><p>商品 AI 推薦、關鍵字搜尋與類似商品，帶領 6–8 人團隊</p></article><article class="resume-item"><span>2022 — 2023 · 大括號科技</span><h3>Software Engineer</h3><p>WhatsApp、Facebook、Line、WeChat、WebWidget 的統一客服整合</p></article><article class="resume-item"><span>2016 — 2022 · Earlier roles</span><h3>Backend / Full-stack Engineering</h3><p>電商、金流物流、爬蟲與反爬、Web、桌面應用及外包產品交付</p></article></div></section>
-    <section class="contact" id="contact" aria-labelledby="contact-title"><div><p class="eyebrow">Contact</p><h2 id="contact-title">正在尋找能把 AI 做進真實工作流程的團隊</h2></div><div class="contact-links"><a href="mailto:meatball0520@gmail.com">Email</a><a href="https://github.com/s724959099">GitHub</a><a href="https://www.cake.me/resumes/s724959099">Cake</a></div></section>
-    <footer class="site-footer">© Max Wang · 王博生 · Principal Engineer / Tech Lead / FDE</footer>
-  </div>
+      <article class="case">
+        <div class="case__meta">Case 02<br>TG-Type<br>macOS</div>
+        <div class="case__body"><h3>輸入不是終點，學習才是</h3><p>TG-Type 不只是把語音轉成文字或留在本機。它把逐字稿、smart format、選文改寫與個人化學習接成同一條路，目標是減少「明明講完了，還要花時間改回自己的語氣」</p><div class="case__steps"><div><b>原本</b><p>一般語音輸入只交出逐字稿，標點、語氣與格式仍要人工重整</p></div><div><b>做法</b><p>依上下文 smart format，並從使用者的修正與偏好中逐步學習</p></div><div><b>留下</b><p>更接近個人表達方式的輸入工具，能把口述內容直接送到正在使用的 App</p></div></div></div>
+      </article>
 
-  <script>
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const observer = new IntersectionObserver(entries => {
-        for (const entry of entries) if (entry.isIntersecting) entry.target.classList.add("is-visible");
-      }, { threshold: .18 });
-      document.querySelectorAll(".case").forEach(element => observer.observe(element));
-    }
-  </script>
+      <article class="case">
+        <div class="case__meta">Case 03<br>Kodama<br>Web → Discord</div>
+        <div class="case__body"><h3>在 Hermes 出現前，先做了一個能成長的 Web 版 agent</h3><p>Kodama 的第一版是自建 Web agent，後來整合進 Discord。當 Hermes 出現後，它不需要再和 Hermes 做同一件事，於是留下最有價值的部分：讓系統能從互動與資料裡理解個人工作脈絡</p><div class="case__steps"><div><b>原本</b><p>想要一個能在 Web 上運作、可以持續累積脈絡的個人 agent</p></div><div><b>做法</b><p>建立 Web 介面、Discord 接點、工作流與資料累積機制</p></div><div><b>留下</b><p>RAG 與 memory 機制，讓後續工具理解偏好、決策與工作 context</p></div></div></div>
+      </article>
+
+      <article class="case">
+        <div class="case__meta">Case 04<br>OMP<br>Oh My Pi</div>
+        <div class="case__body"><h3>讓工作可恢復、可委派、可驗證</h3><p>OMP 是主要的 development harness，不是 OMP Home，也不是 OMP Memory。它把跨專案 rules、skills、hooks、extensions、session recap、worktree、verification 與 delivery 收斂成可以接手的工作系統</p><div class="case__steps"><div><b>原本</b><p>AI 開發容易停在單一 session，離開現場就失去進度與上下文</p></div><div><b>做法</b><p>把 worktree、驗證、交付、session recap 與跨專案工作規則做成可重用 harness</p></div><div><b>留下</b><p>能在不同情境接回工作的工程底座，memory 只保存能幫助分身延續工作的脈絡</p></div></div></div>
+      </article>
+    </section>
+
+    <section class="closing"><div><p class="eyebrow">Full experience</p><h2>想看完整職涯與技術細節<br>就從履歷繼續</h2></div><a class="resume-link" href="https://www.cake.me/resumes/s724959099">閱讀完整 Cake 履歷</a></section>
+    <footer class="footer">© Max Wang · 王博生 · Principal Engineer / Tech Lead / FDE</footer>
+  </main>
 </body>
 </html>
