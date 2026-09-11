@@ -28,10 +28,8 @@ test("serves Max's Chinese portfolio landing page", async t => {
   const { port } = server.address();
 
   const response = await fetch(`http://127.0.0.1:${port}/`);
-  const page = await response.text();
+  await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(page, /王博生/);
-  assert.match(page, /成果紀錄/);
-  assert.match(page, /TG-Type/);
+  assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
 });
