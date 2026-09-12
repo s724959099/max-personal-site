@@ -36,6 +36,7 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /https:\/\/www\.cake\.me\/resumes\/s724959099/);
   assert.match(page, /https:\/\/github\.com\/s724959099/);
   assert.match(page, /https:\/\/www\.instagram\.com\/583_maxwang\//);
-  assert.match(page, /完整工作經歷/);
   assert.match(page, /TransglobalUS/);
+  assert.match(page, /Experience index/);
+  assert.match(page, /Side projects index/);
 });
