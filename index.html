@@ -59,6 +59,23 @@
 
     .site-nav { display: flex; align-items: center; min-height: calc(var(--3xl) + var(--lg)); border-bottom: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); }
     .site-nav__name { font: 400 22px / 1 var(--display); letter-spacing: -.03em; text-decoration: none; }
+    .hero-wordmark { display: grid; width: min(100%, 390px); margin: 0 0 var(--xl); color: var(--ink); }
+    .wordmark-line { display: flex; align-items: center; gap: var(--sm); height: 86px; }
+    .wordmark-line__glyph { width: 120px; height: 86px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 10; }
+    .wordmark-line__letters { font: 400 68px / .8 var(--display); letter-spacing: -.06em; }
+    .wordmark-brush { width: 100%; height: var(--md); margin: calc(var(--sm) * -1) 0; color: var(--accent-dark); opacity: .32; }
+    .wordmark-brush path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 4; }
+    .wordmark-line--bottom { color: color-mix(in srgb, var(--ink) 54%, var(--paper)); }
+    .wordmark-line--bottom .wordmark-line__glyph { filter: url(#wordmark-soft); }
+    .wordmark-line--bottom .wordmark-line__letters { opacity: .86; }
+
+    @media (max-width: 760px) {
+      .hero-wordmark { width: min(100%, 320px); }
+      .wordmark-line { height: 72px; }
+      .wordmark-line__glyph { width: 100px; height: 72px; }
+      .wordmark-line__letters { font-size: 56px; }
+    }
+
 
     .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr); gap: var(--3xl); padding: clamp(64px, 11vw, 144px) 0 var(--3xl); border-bottom: 1px solid color-mix(in srgb, var(--ink) 38%, transparent); }
     .hero h1 { max-width: 770px; margin: var(--lg) 0 var(--xl); font: 400 clamp(54px, 7vw, 96px) / .92 var(--display); letter-spacing: -.065em; text-wrap: balance; }
@@ -131,6 +148,22 @@
 
     <header class="hero">
       <div>
+        <div class="hero-wordmark" role="img" aria-label="Max Wang 水墨倒影字標">
+          <svg aria-hidden="true" width="0" height="0">
+            <defs>
+              <filter id="wordmark-soft" x="-8%" y="-8%" width="116%" height="116%"><feGaussianBlur stdDeviation=".35" /></filter>
+            </defs>
+          </svg>
+          <div class="wordmark-line">
+            <svg class="wordmark-line__glyph" viewBox="50 140 145 120" aria-hidden="true"><path d="M68 238V157C68 151 74 149 79 157L120 207L161 157C166 149 172 151 172 157V238" /></svg>
+            <span class="wordmark-line__letters" aria-hidden="true">ax</span>
+          </div>
+          <svg class="wordmark-brush" viewBox="0 0 390 12" preserveAspectRatio="none" aria-hidden="true"><path d="M10 6C62 5 108 7 158 6C212 5 274 7 332 6C354 5 371 6 380 6" stroke-dasharray="72 4 38 3 54 5 96 4 36 3" /></svg>
+          <div class="wordmark-line wordmark-line--bottom">
+            <svg class="wordmark-line__glyph" viewBox="50 252 145 120" aria-hidden="true"><path d="M68 274V355C68 361 74 363 79 355L120 305L161 355C166 363 172 361 172 355V274" /></svg>
+            <span class="wordmark-line__letters" aria-hidden="true">ang</span>
+          </div>
+        </div>
         <p class="eyebrow">Principal Engineer · Tech Lead · FDE</p>
         <h1>把判斷放回系統</h1>
         <p class="hero__summary">王博生 Max Wang，從一個 workflow 的摩擦開始，往下追到資料、工具與交付責任的邊界，把分散的工作變成團隊能長期使用的系統</p>
