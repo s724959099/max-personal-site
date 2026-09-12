@@ -39,4 +39,5 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /TransglobalUS/);
   assert.match(page, /Experience index/);
   assert.match(page, /Side projects index/);
+  assert.match(page, /<h1 id="about-title">[^<]+<\/h1>\s*<p class="masthead__tagline">10\+ 年工程師 — 我把混亂的營運與技術現場，變成有人能接手的系統。<\/p>/);
 });
