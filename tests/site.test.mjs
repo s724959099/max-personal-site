@@ -33,4 +33,9 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.equal(response.status, 200);
   assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
   assert.match(page, /aria-label="Max Wang 水墨倒影字標"/);
+  assert.match(page, /https:\/\/www\.cake\.me\/resumes\/s724959099/);
+  assert.match(page, /https:\/\/github\.com\/s724959099/);
+  assert.match(page, /https:\/\/www\.instagram\.com\/583_maxwang\//);
+  assert.match(page, /完整工作經歷/);
+  assert.match(page, /TransglobalUS/);
 });
