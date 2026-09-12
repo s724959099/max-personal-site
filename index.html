@@ -130,7 +130,7 @@
     .experience-index { counter-reset: role; }
     .experience-entry {
       display: grid;
-      grid-template-columns: 40px minmax(110px, .32fr) minmax(150px, .58fr) minmax(0, 1.1fr);
+      grid-template-columns: 40px minmax(110px, .32fr) minmax(150px, .58fr) minmax(160px, .72fr) minmax(280px, 1.35fr);
       gap: var(--lg);
       align-items: baseline;
       padding: var(--lg) 0;
@@ -204,6 +204,8 @@
       .masthead, .background-index { grid-template-columns: 1fr; gap: var(--xl); }
       .projects-grid { grid-template-columns: 1fr; }
       .projects-note { grid-column: 1; padding: var(--xl) 0 0; border-left: 0; border-top: .5px solid var(--line); }
+      .experience-entry { grid-template-columns: 32px minmax(110px, .48fr) minmax(0, 1fr); }
+      .experience-entry__context, .experience-entry > p { grid-column: 3; }
     }
     @media (max-width: 640px) {
       .page { width: min(calc(100% - var(--xl)), 1440px); padding: 0 var(--lg); }
