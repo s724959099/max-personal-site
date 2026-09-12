@@ -40,4 +40,6 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /Experience index/);
   assert.match(page, /Side projects index/);
   assert.match(page, /<h1 id="about-title">[^<]+<\/h1>\s*<p class="masthead__tagline">10\+ 年工程師 — 我做的事，是讓混亂的營運與技術現場變得有人能接手。<\/p>/);
+  assert.doesNotMatch(page, /輔英科技大學/);
+  assert.doesNotMatch(page, /為什麼拆開/);
 });

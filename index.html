@@ -153,8 +153,7 @@
     .projects-index { padding-bottom: var(--3xl); }
     .projects-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(200px, .55fr);
-      gap: 0 var(--3xl);
+      grid-template-columns: minmax(0, 1fr);
       border-bottom: .5px solid var(--ink);
     }
     .project {
@@ -167,10 +166,8 @@
     .project:nth-child(4) { border-bottom: 0; }
     .project__number { color: var(--accent-dark); font: 400 46px / .9 var(--display); letter-spacing: -.04em; }
     .project h3 { font: 400 30px / 1.05 var(--display); letter-spacing: -.035em; }
-    .project p { max-width: 500px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
+    .project p { max-width: 720px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
     .project__proof { margin-top: var(--md); color: var(--accent-dark) !important; font-size: 12px !important; }
-    .projects-note { align-self: start; padding: var(--2xl) 0 0 var(--xl); border-left: .5px solid var(--line); color: var(--muted); font-size: 13px; }
-    .projects-note strong { display: block; margin-bottom: var(--sm); color: var(--ink); font: 400 22px / 1.15 var(--display); }
 
     .background-index {
       display: grid;
@@ -180,9 +177,6 @@
       border-top: .5px solid var(--ink);
     }
     .background-index h2 { margin-top: var(--sm); font: 400 30px / 1.1 var(--display); letter-spacing: -.035em; }
-    .education { margin-top: var(--xl); color: var(--ink-soft); font-size: 14px; }
-    .education strong { display: block; color: var(--ink); font-size: 16px; font-weight: 500; }
-    .education span { display: block; margin-top: var(--xs); color: var(--muted); }
     .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--lg) var(--xl); }
     .skill h3 { margin-bottom: var(--xs); color: var(--accent-dark); font-size: 12px; font-weight: 500; }
     .skill p { color: var(--ink-soft); font-size: 13px; }
@@ -203,8 +197,6 @@
 
     @media (max-width: 900px) {
       .masthead, .background-index { grid-template-columns: 1fr; gap: var(--xl); }
-      .projects-grid { grid-template-columns: 1fr; }
-      .projects-note { grid-column: 1; padding: var(--xl) 0 0; border-left: 0; border-top: .5px solid var(--line); }
       .experience-entry { grid-template-columns: 32px minmax(110px, .48fr) minmax(0, 1fr); }
       .experience-entry__context, .experience-entry > p { grid-column: 3; }
     }
@@ -261,9 +253,7 @@
       <div class="masthead__copy">
         <h1 id="about-title">Principal Engineer / Tech Lead</h1>
         <p class="masthead__tagline">10+ 年工程師 — 我做的事，是讓混亂的營運與技術現場變得有人能接手。</p>
-        <p class="masthead__lead">王博生 Max Wang。最近三年在 TransglobalUS 當 Principal Engineer，團隊從我一個人長到 18 人，把原本外購的 CRM 與 Workshop 改成自建。</p>
-        <p>做法沒什麼特別的：先去看實際 workflow 卡在哪，再決定要動資料、工具，還是交付流程；能寫成規則的就寫成規則，讓下一個人不用問我也能繼續。</p>
-        <aside class="masthead__note" aria-label="工作範圍"><strong>目前的工作範圍</strong>後端架構、AI Agent 工具，以及讓團隊能穩定交付的流程。</aside>
+        <p>王博生 Max Wang</p>
       </div>
     </header>
 
@@ -342,15 +332,13 @@
           <div class="project__number">04</div>
           <div><h3>AI 123</h3><p>AI 工具、教學與工作方法的公開整理入口，保留實驗與結論的關係，讓 AI 工作可以被重新閱讀。</p><p class="project__proof">Proof · 用案例與操作紀錄形成可追溯索引。</p></div>
         </article>
-        <aside class="projects-note"><strong>為什麼拆開？</strong>Employment 是時間軸與責任範圍；Side Projects 是作者仍在做的系統。兩者都重要，但不該用同一種密度展示。</aside>
       </div>
     </section>
 
     <section class="background-index" aria-labelledby="background-title">
       <div>
-        <p class="section-label">Background index</p>
-        <h2 id="background-title">把技術放在<br>能解決問題的位置。</h2>
-        <div class="education"><strong>輔英科技大學 · 資訊工程系</strong><span>2008 – 2012</span></div>
+        <p class="section-label">Skills index</p>
+        <h2 id="background-title">常用的工具與技術棧</h2>
       </div>
       <div class="skills" aria-label="CakeResume 技能索引">
         <div class="skill"><h3>AI / LLM</h3><p>Multi-Agent 編排、LLM 應用整合、Prompt Engineering、本地／雲端模型部署</p></div>
