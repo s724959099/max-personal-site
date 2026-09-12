@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="王博生 Max Wang — Principal Engineer / Tech Lead，以系統解決真實的業務摩擦。">
   <meta name="theme-color" content="#b9cbc2">
-  <title>王博生 Max Wang — 精選工作與完整經歷</title>
+  <title>王博生 Max Wang — Work index</title>
   <style>
     :root {
-      --ink: #13212d;
-      --ink-soft: #1f3440;
-      --muted: #38534f;
-      --tertiary: #678078;
       --canvas: #b9cbc2;
       --paper: #f4f2ed;
-      --surface: #e1ebe5;
-      --line: #6b8981;
-      --accent: #27b193;
-      --accent-dark: #127b68;
+      --white-ink: #fbfaf3;
+      --ink: #13212d;
+      --ink-soft: #29404a;
+      --muted: #3f5c58;
+      --tertiary: #668079;
+      --line: #78948b;
+      --accent: #238e78;
+      --accent-dark: #176957;
       --success: #1d6f5f;
       --warn: #947124;
       --error: #a44943;
@@ -42,31 +42,37 @@
     body {
       margin: 0;
       overflow-x: hidden;
-      background-color: var(--canvas);
-      background-image: radial-gradient(color-mix(in srgb, var(--ink) 14%, transparent) 1px, transparent 1px);
-      background-size: var(--sm) var(--sm);
+      background: var(--canvas);
       color: var(--ink);
       font-family: var(--body);
       line-height: 1.6;
     }
     a { color: inherit; }
     a:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: var(--xs); }
-    h1, h2, h3, p, ul, dl, dd, figure { margin: 0; }
-    h1, h2, h3 { font-weight: 400; text-wrap: balance; }
+    h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+    h1, h2, h3, h4 { font-weight: 400; text-wrap: balance; }
+    ul, ol { padding: 0; list-style: none; }
+
     .skip-link {
       position: absolute;
       top: var(--sm);
       left: var(--sm);
-      z-index: 2;
-      transform: translateY(-200%);
+      z-index: 10;
       padding: var(--sm) var(--md);
+      transform: translateY(-200%);
       border-radius: var(--radius-sm);
       background: var(--ink);
       color: var(--paper);
     }
     .skip-link:focus { transform: translateY(0); }
-    .shell { width: min(calc(100% - var(--2xl)), 1180px); margin: 0 auto; }
-    .eyebrow, .section-label, .case-meta, .timeline-date, .skill-label {
+    .page {
+      width: min(calc(100% - var(--2xl)), 1440px);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 0 var(--xl);
+      background: var(--white-ink);
+    }
+    .section-label, .meta {
       color: var(--muted);
       font-size: 11px;
       letter-spacing: .08em;
@@ -74,38 +80,23 @@
     }
 
     .masthead {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: var(--xl);
-      min-height: calc(var(--3xl) + var(--lg));
-      padding: var(--lg) 0 var(--md);
-      border-bottom: .5px solid color-mix(in srgb, var(--ink) 38%, transparent);
-    }
-    .masthead__name {
-      font: 400 22px / 1 var(--display);
-      letter-spacing: -.03em;
-      text-decoration: none;
-    }
-    .masthead__meta { color: var(--muted); font-size: 12px; }
-
-    .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+      grid-template-columns: minmax(190px, .5fr) minmax(0, 1.5fr);
       gap: var(--3xl);
-      padding: clamp(64px, 10vw, 128px) 0 var(--3xl);
-      border-bottom: .5px solid color-mix(in srgb, var(--ink) 38%, transparent);
+      align-items: end;
+      padding: var(--2xl) 0;
+      border-bottom: 1px solid var(--ink);
     }
-    .hero-wordmark {
-      display: grid;
-      width: min(100%, 390px);
-      margin-bottom: var(--xl);
+    .wordmark {
+      display: inline-grid;
+      width: min(100%, 300px);
       color: var(--ink);
     }
-    .wordmark-line { display: flex; align-items: center; gap: var(--sm); height: 86px; }
-    .wordmark-line__glyph {
-      width: 120px;
-      height: 86px;
+    .masthead .wordmark { width: 230px; transform: scale(.78); transform-origin: left bottom; }
+    .wordmark-line { display: flex; align-items: center; gap: var(--sm); height: 68px; }
+    .wordmark-glyph {
+      width: 92px;
+      height: 68px;
       flex: 0 0 auto;
       fill: none;
       stroke: currentColor;
@@ -113,396 +104,268 @@
       stroke-linejoin: round;
       stroke-width: 10;
     }
-    .wordmark-line__letters { font: 400 68px / .8 var(--display); letter-spacing: -.06em; }
+    .wordmark-letters { font: 400 54px / .8 var(--display); letter-spacing: -.06em; }
     .wordmark-brush { width: 100%; height: var(--md); margin: calc(var(--sm) * -1) 0; color: var(--accent-dark); opacity: .32; }
     .wordmark-brush path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 4; }
-    .wordmark-line--bottom { color: color-mix(in srgb, var(--ink) 54%, var(--paper)); }
-    .wordmark-line--bottom .wordmark-line__glyph { filter: url(#wordmark-soft); }
-    .wordmark-line--bottom .wordmark-line__letters { opacity: .86; }
-    .hero h1 {
-      max-width: 780px;
-      margin-top: var(--lg);
-      font: 400 clamp(48px, 7vw, 88px) / .94 var(--display);
-      letter-spacing: -.06em;
-    }
-    .hero__summary { max-width: 650px; margin-top: var(--xl); color: var(--ink-soft); font-size: 18px; }
-    .hero-note { align-self: end; padding-top: var(--lg); border-top: .5px solid var(--line); }
-    .hero-note h2 { margin-top: var(--sm); font: 400 28px / 1.12 var(--display); letter-spacing: -.035em; }
-    .hero-note p:last-child { margin-top: var(--md); color: var(--muted); font-size: 13px; }
+    .wordmark-line--bottom { color: color-mix(in srgb, var(--ink) 54%, var(--white-ink)); }
+    .wordmark-line--bottom .wordmark-letters { opacity: .86; }
+    .masthead__copy h1 { max-width: 720px; margin-top: var(--sm); font: 400 clamp(30px, 4vw, 54px) / 1.02 var(--display); letter-spacing: -.045em; }
+    .masthead__copy > p { max-width: 630px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
+    .masthead__copy .masthead__lead { margin-top: var(--xl); color: var(--ink); font-size: 16px; }
+    .masthead__note { margin-top: var(--xl); padding-top: var(--lg); border-top: .5px solid var(--line); color: var(--muted); font-size: 13px; }
+    .masthead__note strong { display: block; margin-bottom: var(--sm); color: var(--ink); font: 400 22px / 1.15 var(--display); }
 
-    .section { scroll-margin-top: var(--xl); padding-top: var(--3xl); }
-    .section-heading {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(240px, .55fr);
+    .index-section { padding-top: var(--3xl); }
+    .index-section__head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
       gap: var(--xl);
-      align-items: end;
-      padding-bottom: var(--xl);
-      border-bottom: .5px solid color-mix(in srgb, var(--ink) 38%, transparent);
+      padding-bottom: var(--md);
+      border-bottom: .5px solid var(--ink);
     }
-    .section-heading h2 {
-      margin-top: var(--sm);
-      font: 400 clamp(36px, 5vw, 64px) / .98 var(--display);
-      letter-spacing: -.05em;
-    }
-    .section-heading > p { color: var(--ink-soft); font-size: 14px; }
+    .index-section__head h2 { font: 400 30px / 1.1 var(--display); letter-spacing: -.035em; }
+    .index-section__head p { color: var(--muted); font-size: 12px; }
 
-    .case-list { border-bottom: .5px solid color-mix(in srgb, var(--ink) 38%, transparent); }
-    .case {
-      display: grid;
-      grid-template-columns: minmax(140px, .38fr) minmax(0, 1.62fr);
-      gap: var(--2xl);
-      padding: var(--2xl) 0;
-      border-bottom: .5px solid color-mix(in srgb, var(--ink) 30%, transparent);
-    }
-    .case:last-child { border-bottom: 0; }
-    .case > * { min-width: 0; }
-    .case-meta { line-height: 1.55; }
-    .case-meta strong { display: block; margin-bottom: var(--sm); color: var(--accent-dark); font: 400 26px / 1 var(--display); letter-spacing: 0; }
-    .case--feature {
-      margin: var(--xl) 0 0;
-      padding: var(--2xl);
-      border: 0;
-      border-radius: var(--radius-lg);
-      background: var(--ink);
-      color: var(--paper);
-    }
-    .case--feature + .case { border-top: .5px solid color-mix(in srgb, var(--ink) 38%, transparent); }
-    .case--feature .case-meta, .case--feature .case-copy > p, .case--feature .case-proof li { color: color-mix(in srgb, var(--paper) 76%, transparent); }
-    .case--feature .case-meta strong, .case--feature .case-proof b { color: var(--accent); }
-    .case-body { min-width: 0; }
-    .case-body h3 { max-width: 760px; font: 400 clamp(28px, 4vw, 48px) / 1.06 var(--display); letter-spacing: -.045em; }
-    .case-copy > p { max-width: 760px; margin-top: var(--lg); color: var(--ink-soft); font-size: 15px; }
-    .case-proof {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--lg);
-      margin-top: var(--xl);
-      padding: var(--lg) 0 0;
-      border-top: .5px solid color-mix(in srgb, var(--ink) 30%, transparent);
-      list-style: none;
-    }
-    .case-proof li { color: var(--ink-soft); font-size: 13px; }
-    .case-proof b { display: block; margin-bottom: var(--xs); color: var(--accent-dark); font-size: 12px; font-weight: 500; letter-spacing: .04em; }
-    .case-note { margin-top: var(--lg); color: var(--tertiary); font-size: 12px; }
-
-    .experience-list { border-bottom: .5px solid color-mix(in srgb, var(--ink) 38%, transparent); }
+    .experience-index { counter-reset: role; }
     .experience-entry {
       display: grid;
-      grid-template-columns: minmax(150px, .48fr) minmax(0, 1.52fr);
-      gap: var(--2xl);
-      padding: var(--xl) 0;
-      border-bottom: .5px solid color-mix(in srgb, var(--ink) 30%, transparent);
+      grid-template-columns: 40px minmax(110px, .32fr) minmax(150px, .58fr) minmax(0, 1.1fr);
+      gap: var(--lg);
+      align-items: baseline;
+      padding: var(--lg) 0;
+      border-bottom: .5px solid color-mix(in srgb, var(--line) 72%, transparent);
     }
-    .experience-entry:first-child { padding-top: var(--2xl); }
-    .experience-entry:last-child { border-bottom: 0; }
-    .timeline-date { line-height: 1.5; }
-    .timeline-date time { display: block; color: var(--ink); font-size: 13px; letter-spacing: .03em; text-transform: none; font-variant-numeric: tabular-nums; }
-    .timeline-date span { display: block; margin-top: var(--xs); }
-    .experience-body h3 { font: 400 clamp(22px, 2.5vw, 32px) / 1.14 var(--display); letter-spacing: -.03em; }
-    .experience-body__intro { margin-top: var(--xs); color: var(--muted); font-size: 13px; }
-    .experience-facts {
-      display: grid;
-      gap: var(--sm);
-      margin: var(--lg) 0 0;
-      padding: 0;
-      color: var(--ink-soft);
-      font-size: 14px;
-      list-style: none;
+    .experience-entry::before {
+      counter-increment: role;
+      content: counter(role, decimal-leading-zero);
+      color: var(--accent-dark);
+      font: 400 18px / 1 var(--display);
     }
-    .experience-facts li { position: relative; padding-left: var(--lg); }
-    .experience-facts li::before { position: absolute; top: .75em; left: 0; width: var(--sm); height: .5px; background: var(--accent-dark); content: ""; }
-    .experience-entry--compact { padding: var(--lg) 0; }
-    .experience-entry--compact .experience-body { display: grid; grid-template-columns: minmax(170px, .5fr) minmax(0, 1.5fr); gap: var(--xl); align-items: baseline; }
-    .experience-entry--compact h3 { font-size: 20px; }
-    .experience-entry--compact p { color: var(--muted); font-size: 13px; }
+    .experience-entry time { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+    .experience-entry__title { display: grid; gap: var(--xs); }
+    .experience-entry h3 { font: 400 19px / 1.2 var(--display); }
+    .experience-entry h4 { color: var(--accent-dark); font-size: 12px; font-weight: 500; }
+    .experience-entry p { color: var(--ink-soft); font-size: 13px; }
+    .experience-entry__context { color: var(--muted) !important; font-size: 12px !important; }
 
-    .afterword {
+    .projects-index { padding-bottom: var(--3xl); }
+    .projects-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, .85fr);
-      gap: var(--3xl);
-      margin-top: var(--3xl);
-      padding-top: var(--2xl);
-      border-top: .5px solid color-mix(in srgb, var(--ink) 38%, transparent);
+      grid-template-columns: minmax(0, 1.45fr) minmax(200px, .55fr);
+      gap: 0 var(--3xl);
+      border-bottom: .5px solid var(--ink);
     }
-    .afterword h2 { margin-top: var(--sm); font: 400 clamp(30px, 4vw, 52px) / 1 var(--display); letter-spacing: -.045em; }
+    .project {
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      gap: var(--lg);
+      padding: var(--2xl) 0;
+      border-bottom: .5px solid color-mix(in srgb, var(--line) 72%, transparent);
+    }
+    .project:nth-child(4) { border-bottom: 0; }
+    .project__number { color: var(--accent-dark); font: 400 46px / .9 var(--display); letter-spacing: -.04em; }
+    .project h3 { font: 400 30px / 1.05 var(--display); letter-spacing: -.035em; }
+    .project p { max-width: 500px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
+    .project__proof { margin-top: var(--md); color: var(--accent-dark) !important; font-size: 12px !important; }
+    .projects-note { align-self: start; padding: var(--2xl) 0 0 var(--xl); border-left: .5px solid var(--line); color: var(--muted); font-size: 13px; }
+    .projects-note strong { display: block; margin-bottom: var(--sm); color: var(--ink); font: 400 22px / 1.15 var(--display); }
+
+    .background-index {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .9fr);
+      gap: var(--3xl);
+      padding: var(--3xl) 0 var(--xl);
+      border-top: .5px solid var(--ink);
+    }
+    .background-index h2 { margin-top: var(--sm); font: 400 30px / 1.1 var(--display); letter-spacing: -.035em; }
     .education { margin-top: var(--xl); color: var(--ink-soft); font-size: 14px; }
     .education strong { display: block; color: var(--ink); font-size: 16px; font-weight: 500; }
     .education span { display: block; margin-top: var(--xs); color: var(--muted); }
     .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--lg) var(--xl); }
-    .skill-group h3 { margin-bottom: var(--xs); color: var(--accent-dark); font-size: 12px; font-weight: 500; letter-spacing: .04em; }
-    .skill-group p { color: var(--ink-soft); font-size: 13px; }
+    .skill h3 { margin-bottom: var(--xs); color: var(--accent-dark); font-size: 12px; font-weight: 500; }
+    .skill p { color: var(--ink-soft); font-size: 13px; }
 
-    .contact {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+    .footer {
+      display: flex;
+      justify-content: space-between;
       gap: var(--xl);
-      align-items: end;
-      padding: var(--3xl) 0 var(--xl);
+      align-items: baseline;
+      padding: var(--2xl) 0 var(--xl);
+      border-top: .5px solid var(--ink);
+      color: var(--muted);
+      font-size: 12px;
     }
-    .contact h2 { margin-top: var(--sm); font: 400 clamp(38px, 5vw, 64px) / .98 var(--display); letter-spacing: -.05em; }
-    .contact p { max-width: 520px; margin-top: var(--md); color: var(--muted); font-size: 14px; }
-    .contact-links { display: flex; flex-wrap: wrap; gap: var(--md); justify-content: flex-end; }
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 0 var(--lg);
-      border: .5px solid var(--accent-dark);
-      border-radius: var(--radius-sm);
-      color: var(--accent-dark);
-      font-size: 13px;
-      text-decoration: none;
-      transition: background var(--speed) var(--ease), color var(--speed) var(--ease);
-    }
-    .contact-link:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
-    .footer { padding: var(--lg) 0; border-top: .5px solid color-mix(in srgb, var(--ink) 38%, transparent); color: var(--muted); font-size: 12px; }
+    .footer nav { display: flex; flex-wrap: wrap; gap: var(--lg); }
+    .footer a { text-decoration: none; border-bottom: .5px solid var(--accent-dark); transition: color var(--speed) var(--ease), border-color var(--speed) var(--ease); }
+    .footer a:hover { color: var(--accent-dark); border-color: var(--ink); }
 
-    @media (max-width: 820px) {
-      .hero, .section-heading, .afterword { grid-template-columns: 1fr; gap: var(--xl); }
-      .case { grid-template-columns: 1fr; gap: var(--md); }
-      .experience-entry { grid-template-columns: 1fr; gap: var(--md); }
-      .experience-entry--compact .experience-body { grid-template-columns: minmax(130px, .5fr) minmax(0, 1.5fr); gap: var(--lg); }
-      .contact { grid-template-columns: 1fr; align-items: start; }
-      .contact-links { justify-content: flex-start; }
+    @media (max-width: 900px) {
+      .masthead, .background-index { grid-template-columns: 1fr; gap: var(--xl); }
+      .projects-grid { grid-template-columns: 1fr; }
+      .projects-note { grid-column: 1; padding: var(--xl) 0 0; border-left: 0; border-top: .5px solid var(--line); }
     }
-    @media (max-width: 600px) {
-      .shell { width: min(calc(100% - var(--xl)), 1180px); }
-      .masthead { align-items: start; }
-      .masthead__meta { max-width: 150px; text-align: right; }
-      .hero { padding-top: var(--3xl); }
-      .hero-wordmark { width: min(100%, 320px); }
-      .wordmark-line { height: 72px; }
-      .wordmark-line__glyph { width: 100px; height: 72px; }
-      .wordmark-line__letters { font-size: 56px; }
-      .case--feature { padding: var(--xl); }
-      .case-proof { grid-template-columns: 1fr; }
-      .experience-entry--compact .experience-body { display: block; }
-      .experience-entry--compact p { margin-top: var(--xs); }
+    @media (max-width: 640px) {
+      .page { width: min(calc(100% - var(--xl)), 1440px); padding: 0 var(--lg); }
+      .masthead { padding: var(--xl) 0; }
+      .masthead .wordmark { width: 210px; }
+      .index-section { padding-top: var(--2xl); }
+      .index-section__head { display: block; }
+      .index-section__head p { margin-top: var(--sm); }
+      .experience-entry { grid-template-columns: 32px minmax(96px, .7fr) minmax(0, 1fr); gap: var(--sm); }
+      .experience-entry p { grid-column: 2 / -1; }
+      .experience-entry__context { grid-column: 2 / -1; }
+      .project { grid-template-columns: 52px minmax(0, 1fr); }
+      .project__number { font-size: 34px; }
       .skills { grid-template-columns: 1fr; }
+      .footer { display: block; }
+      .footer nav { margin-top: var(--md); }
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --ink: #eaf2eb;
-        --ink-soft: #d1dfd8;
-        --muted: #a6c1b7;
-        --tertiary: #87a69b;
-        --canvas: #183036;
-        --paper: #f3f0e9;
-        --surface: #203c40;
-        --line: #5f867c;
-        --accent: #39c6a8;
-        --accent-dark: #6dd4bd;
+        --canvas: #263b3b;
+        --paper: #e9e8df;
+        --white-ink: #f0eee5;
+        --ink: #172a32;
+        --ink-soft: #314b52;
+        --muted: #4d6863;
+        --tertiary: #668079;
+        --line: #7e9b91;
+        --accent: #217d6a;
+        --accent-dark: #155a4d;
       }
       html { color-scheme: dark; }
-      body { background-image: radial-gradient(color-mix(in srgb, var(--paper) 14%, transparent) 1px, transparent 1px); }
-      .case--feature { background: #102126; }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#content">跳到內容</a>
-  <main class="shell" id="content">
-    <nav class="masthead" aria-label="網站識別與頁面導覽">
-      <a class="masthead__name" href="#content">Max Wang</a>
-      <span class="masthead__meta">Principal Engineer · Tech Lead · FDE</span>
-    </nav>
-
-    <header class="hero" aria-labelledby="hero-title">
+  <main class="page" id="content">
+    <header class="masthead" aria-labelledby="about-title">
       <div>
-        <div class="hero-wordmark" role="img" aria-label="Max Wang 水墨倒影字標">
-          <svg aria-hidden="true" width="0" height="0">
-            <defs><filter id="wordmark-soft" x="-8%" y="-8%" width="116%" height="116%"><feGaussianBlur stdDeviation=".35" /></filter></defs>
-          </svg>
-          <div class="wordmark-line">
-            <svg class="wordmark-line__glyph" viewBox="50 140 145 120" aria-hidden="true"><path d="M68 238V157C68 151 74 149 79 157L120 207L161 157C166 149 172 151 172 157V238" /></svg>
-            <span class="wordmark-line__letters" aria-hidden="true">ax</span>
-          </div>
+        <div class="wordmark" role="img" aria-label="Max Wang 水墨倒影字標">
+          <svg aria-hidden="true" width="0" height="0"><defs><filter id="wordmark-soft" x="-8%" y="-8%" width="116%" height="116%"><feGaussianBlur stdDeviation=".35" /></filter></defs></svg>
+          <div class="wordmark-line"><svg class="wordmark-glyph" viewBox="50 140 145 120" aria-hidden="true"><path d="M68 238V157C68 151 74 149 79 157L120 207L161 157C166 149 172 151 172 157V238" /></svg><span class="wordmark-letters" aria-hidden="true">ax</span></div>
           <svg class="wordmark-brush" viewBox="0 0 390 12" preserveAspectRatio="none" aria-hidden="true"><path d="M10 6C62 5 108 7 158 6C212 5 274 7 332 6C354 5 371 6 380 6" stroke-dasharray="72 4 38 3 54 5 96 4 36 3" /></svg>
-          <div class="wordmark-line wordmark-line--bottom">
-            <svg class="wordmark-line__glyph" viewBox="50 252 145 120" aria-hidden="true"><path d="M68 274V355C68 361 74 363 79 355L120 305L161 355C166 363 172 361 172 355V274" /></svg>
-            <span class="wordmark-line__letters" aria-hidden="true">ang</span>
-          </div>
+          <div class="wordmark-line wordmark-line--bottom"><svg class="wordmark-glyph" viewBox="50 252 145 120" aria-hidden="true"><path d="M68 274V355C68 361 74 363 79 355L120 305L161 355C166 363 172 361 172 355V274" /></svg><span class="wordmark-letters" aria-hidden="true">ang</span></div>
         </div>
-        <p class="eyebrow">用產品脈絡驅動工程判斷</p>
-        <h1 id="hero-title">把複雜工作，變成團隊能接手的系統</h1>
-        <p class="hero__summary">王博生 Max Wang，從真實 workflow 的摩擦開始，往下追到資料、工具與交付責任的邊界，打造可運作、可擴張，也能被下一個人延續的系統。</p>
+        <p class="section-label">About Me · small masthead</p>
       </div>
-      <aside class="hero-note" aria-label="工作方法">
-        <p class="section-label">工作方法</p>
-        <h2>先看見現場，<br>再把變化做小。</h2>
-        <p>後端架構、AI Agent 與團隊交付，最後都要回到可驗證的工作結果。</p>
-      </aside>
+      <div class="masthead__copy">
+        <h1 id="about-title">Principal Engineer / Tech Lead</h1>
+        <p class="masthead__lead">10+ 年，把混亂的 operational 與 technical work 變成 owned、maintainable、可交接的系統。TransglobalUS 團隊從 1 人走到 18 人。</p>
+        <p>王博生 Max Wang，從真實 workflow 的摩擦開始，往下追到資料、工具與交付責任的邊界，打造可運作、可擴張，也能被下一個人延續的系統。</p>
+        <aside class="masthead__note" aria-label="工作方法"><strong>先看見現場，再把變化做小。</strong>後端架構、AI Agent 與團隊交付，最後都要回到可驗證的工作結果。</aside>
+      </div>
     </header>
 
-    <section class="section" id="work" aria-labelledby="work-title">
-      <header class="section-heading">
-        <div>
-          <p class="section-label">01 / 精選工作</p>
-          <h2 id="work-title">能力要放回<br>工作的脈絡裡看。</h2>
-        </div>
-        <p>不展示一排縮圖；留下幾個能讀懂取捨、規模與結果的系統。</p>
+    <section class="index-section" id="experience" aria-labelledby="experience-title">
+      <header class="index-section__head">
+        <h2 id="experience-title">Experience index</h2>
+        <p>latest first · eight roles · employment chronology</p>
       </header>
-      <div class="case-list">
-        <article class="case case--feature">
-          <div class="case-meta"><strong>01</strong>TransglobalUS<br>核心營運系統</div>
-          <div class="case-body">
-            <div class="case-copy">
-              <h3>把關鍵 workflow 從第三方工具收回，做成公司自己的核心。</h3>
-              <p>在 TransglobalUS，從 1 人開始建立並帶領 18 人技術團隊，主導自建 CRM 與 Workshop，取代 iPipeline、HubSpot 等多年沿用的第三方平台。CRM 服務 7,000+ agents，Workshop 約有 9,000 位每日使用者。</p>
-              <ul class="case-proof">
-                <li><b>規模</b>團隊從 1 人擴編至 18 人，建立前後端與 Lead 分工。</li>
-                <li><b>判斷</b>AI log triage 區分 true alerts 與 false alerts，撈出未被發現的線上隱患。</li>
-                <li><b>交付</b>CI/CD、AI code review 與 human handoff，配合文件化需求與多方 signoff。</li>
-              </ul>
-              <p class="case-note">HubSpot 單項年訂閱即逾 $100k USD；將成本與資料主權一併收回。</p>
-            </div>
-          </div>
-        </article>
+      <ol class="experience-index">
+        <li class="experience-entry">
+          <time datetime="2023-11">2023.11—2026.05</time>
+          <div class="experience-entry__title"><h3>TransglobalUS</h3><h4>Principal Engineer</h4></div>
+          <p class="experience-entry__context">公司最高技術負責人；直接向 CTO（轉型長）報告。</p>
+          <p>1 → 18 人技術團隊，設立 Frontend / Backend Lead，建立 Code Review、Pre-commit 與統一 Coding Style；自建 CRM + Workshop 取代 iPipeline、HubSpot（CRM 服務 7,000+ 名 Agent、Workshop 約 9,000 位每日使用者）；CI/CD、自動化測試、AI Code Review、自動部署與 AI log 巡檢，區分 true alerts 與 false alerts 並撈出線上隱患；需求文件化與多方簽核，HubSpot 單項年訂閱逾 $100k USD。</p>
+        </li>
+        <li class="experience-entry">
+          <time datetime="2022-04">2022.04—2023.11</time>
+          <div class="experience-entry__title"><h3>資旅軟體</h3><h4>Tech Lead</h4></div>
+          <p class="experience-entry__context">與大括號科技並行任職，雙方知情。</p>
+          <p>帶領 6—8 人電商 AI 團隊，負責 recommendation、關鍵字搜尋與類似商品；平均商品瀏覽停留從約 20 秒提升至 5 分鐘以上；負責招募、任務分配與 Code Review。</p>
+        </li>
+        <li class="experience-entry">
+          <time datetime="2022-07">2022.07—2023.11</time>
+          <div class="experience-entry__title"><h3>大括號科技</h3><h4>Software Engineer</h4></div>
+          <p class="experience-entry__context">與資旅軟體並行任職，雙方知情。</p>
+          <p>串接 WhatsApp、Facebook、Line、WeChat 與 WebWidget，設計統一訊息整合架構；以 n8n 建立自動化回覆流程，開發客服 Dashboard、類 Trello 看板與後台分析。</p>
+        </li>
+        <li class="experience-entry">
+          <time datetime="2020-11">2020.11—2022.07</time>
+          <div class="experience-entry__title"><h3>兆暘</h3><h4>後端工程師（主導）</h4></div>
+          <p class="experience-entry__context">Shopify 電商後端系統。</p>
+          <p>主導後端架構，串接綠界金流、黑貓與大榮物流及發票系統；設計支援多物流商複雜計費規則的運費計算引擎，優化出貨理單流程。</p>
+        </li>
+        <li class="experience-entry">
+          <time datetime="2019-09">2019.09—2020.08</time>
+          <div class="experience-entry__title"><h3>康闓</h3><h4>full-stack</h4></div>
+          <p>全端開發並管理 1—3 人小團隊；Django、Vue、Docker、PostgreSQL。</p>
+        </li>
+        <li class="experience-entry">
+          <time datetime="2018-05">2018.05—2019.09</time>
+          <div class="experience-entry__title"><h3>Biggo</h3><h4>crawler</h4></div>
+          <p>大規模電商商品資料抓取與反爬蟲對抗；CNN 驗證碼辨識模型準確率 98%。</p>
+        </li>
+        <li class="experience-entry">
+          <time datetime="2017-06">2017.06—2018.05</time>
+          <div class="experience-entry__title"><h3>卡訊電子</h3><h4>software engineer</h4></div>
+          <p>前端、Electron 桌面應用與 API 開發。</p>
+        </li>
+        <li class="experience-entry">
+          <time datetime="2016-05">2016.05—2017.06</time>
+          <div class="experience-entry__title"><h3>鑫翼資訊</h3><h4>backend engineer</h4></div>
+          <p>接案公司後端開發；Flask、MySQL、PostgreSQL。</p>
+        </li>
+      </ol>
+    </section>
 
-        <article class="case">
-          <div class="case-meta"><strong>02</strong>TG-Type<br>macOS 語音輸入</div>
-          <div class="case-body">
-            <div class="case-copy">
-              <h3>輸入不是終點，學習才是。</h3>
-              <p>TG-Type 將 ASR 轉錄、LLM smart format、選取文字重寫與個人化學習接成同一條路；從 corrections 與 preferences 裡持續理解使用者，並把結果送進前景 App。</p>
-              <p class="case-note">本機 LLM 優先；LLM 超時時 fallback 回原始轉錄，不掉字。</p>
-            </div>
-          </div>
+    <section class="index-section projects-index" id="projects" aria-labelledby="projects-title">
+      <header class="index-section__head">
+        <h2 id="projects-title">Side projects index</h2>
+        <p>authored systems · four entries</p>
+      </header>
+      <div class="projects-grid">
+        <article class="project">
+          <div class="project__number">01</div>
+          <div><h3>TG-Type</h3><p>macOS 語音輸入工具，把 ASR 轉錄、LLM smart format、選取文字重寫與個人化學習接起來；從 corrections 與 preferences 裡持續理解使用者。</p><p class="project__proof">Proof · 本機 LLM timeout 時 fallback 原始轉錄，不掉字。</p></div>
         </article>
-
-        <article class="case">
-          <div class="case-meta"><strong>03</strong>Kodama<br>Web agent</div>
-          <div class="case-body">
-            <div class="case-copy">
-              <h3>讓 AI 協作記得工作脈絡，而不只是回放聊天。</h3>
-              <p>Kodama 是自行設計的 multi-agent 開發系統：把 workflow 編排、權責隔離與 self-improving 機制放在同一個可持續演進的工具裡，並以 RAG / memory 保存偏好、決策與工作 context。</p>
-              <p class="case-note">Web UI、Discord 與 schedule 是接點；真正的價值是讓下一次工作能接得回來。</p>
-            </div>
-          </div>
+        <article class="project">
+          <div class="project__number">02</div>
+          <div><h3>Kodama</h3><p>自行設計的 multi-agent 開發系統，把 workflow 編排、權責隔離與 self-improving 機制放進同一個可演進工具，並以 RAG / memory 保存偏好、決策與工作 context。</p><p class="project__proof">Proof · Web UI、Discord、schedule 可接回脈絡。</p></div>
         </article>
-
-        <article class="case">
-          <div class="case-meta"><strong>04</strong>OMP · Oh My Pi<br>開發工具鏈</div>
-          <div class="case-body">
-            <div class="case-copy">
-              <h3>讓工作可恢復、可委派、可驗證。</h3>
-              <p>OMP 把跨專案 rules、skills、hooks、extensions、session recap、worktree、verification 與 delivery 收斂成一致的工程邊界，讓交付不依賴某個人記得所有步驟。</p>
-              <p class="case-note">重點不是把一次任務跑完，而是讓下一個人看懂、接手、重新開始。</p>
-            </div>
-          </div>
+        <article class="project">
+          <div class="project__number">03</div>
+          <div><h3>OMP</h3><p>跨專案工程工具鏈，把 rules、skills、hooks、extensions、session recap、worktree、verification 與 delivery 收斂成一致邊界，讓工作可恢復、可委派、可驗證。</p><p class="project__proof">Proof · rules、hooks、worktree 與 verification 同一邊界。</p></div>
         </article>
+        <article class="project">
+          <div class="project__number">04</div>
+          <div><h3>AI 123</h3><p>AI 工具、教學與工作方法的公開整理入口，保留實驗與結論的關係，讓 AI 工作可以被重新閱讀。</p><p class="project__proof">Proof · 用案例與操作紀錄形成可追溯索引。</p></div>
+        </article>
+        <aside class="projects-note"><strong>為什麼拆開？</strong>Employment 是時間軸與責任範圍；Side Projects 是作者仍在做的系統。兩者都重要，但不該用同一種密度展示。</aside>
       </div>
     </section>
 
-    <section class="section" id="experience" aria-labelledby="experience-title">
-      <header class="section-heading">
-        <div>
-          <p class="section-label">02 / 完整工作經歷</p>
-          <h2 id="experience-title">每一段經歷，<br>都留下可用的系統。</h2>
-        </div>
-        <p>完整保留 CakeResume 的職涯紀錄；詳細成果放進最接近它的段落，不用一張等重的表格壓扁十年工作。</p>
-      </header>
-      <div class="experience-list">
-        <article class="experience-entry">
-          <div class="timeline-date"><time datetime="2023-11">2023.11–2026.05</time><span>TransglobalUS</span></div>
-          <div class="experience-body">
-            <h3>Principal Engineer</h3>
-            <p class="experience-body__intro">公司最高技術負責人；直接向 CTO（轉型長）報告。</p>
-            <ul class="experience-facts">
-              <li>從 1 人擴編、招募並培訓 18 人技術團隊，涵蓋前後端、PM、設計師，設立 Frontend / Backend Lead，建立 Code Review、Pre-commit 與統一 Coding Style。</li>
-              <li>主導自建 CRM + Workshop 平台，取代 iPipeline、HubSpot 等多個第三方平台；CRM 服務 7,000+ 名 Agent，Workshop 日活躍約 9,000 名使用者。</li>
-              <li>建立 CI/CD pipeline（自動化測試、AI Code Review、自動部署）與異常告警；設計 AI log 巡檢，自動區分真／假警報並撈出線上隱患。</li>
-              <li>建立「需求文件化 + 多方簽核」協作機制，減少跨部門認知落差與重工；HubSpot 單項年訂閱逾 $100k USD。</li>
-            </ul>
-          </div>
-        </article>
-        <article class="experience-entry">
-          <div class="timeline-date"><time datetime="2022-04">2022.04–2023.11</time><span>資旅軟體</span></div>
-          <div class="experience-body">
-            <h3>Tech Lead</h3>
-            <p class="experience-body__intro">與大括號科技並行任職，雙方知情。</p>
-            <ul class="experience-facts">
-              <li>帶領 6–8 人團隊，負責電商商品 AI recommendation、關鍵字搜尋與類似商品等核心功能。</li>
-              <li>優化推薦個人化，讓平均商品瀏覽停留時間從約 20 秒提升至 5 分鐘以上。</li>
-              <li>負責團隊招募、任務分配與 Code Review。</li>
-            </ul>
-          </div>
-        </article>
-        <article class="experience-entry">
-          <div class="timeline-date"><time datetime="2022-07">2022.07–2023.11</time><span>大括號科技</span></div>
-          <div class="experience-body">
-            <h3>Software Engineer</h3>
-            <p class="experience-body__intro">與資旅軟體並行任職，雙方知情。</p>
-            <ul class="experience-facts">
-              <li>串接 WhatsApp、Facebook、Line、WeChat 與 WebWidget，設計統一訊息整合架構。</li>
-              <li>以 n8n 建立自動化回覆流程；開發客服 Dashboard、類 Trello 看板與後台分析。</li>
-            </ul>
-          </div>
-        </article>
-        <article class="experience-entry">
-          <div class="timeline-date"><time datetime="2020-11">2020.11–2022.07</time><span>兆暘</span></div>
-          <div class="experience-body">
-            <h3>後端工程師（主導）</h3>
-            <p class="experience-body__intro">Shopify 電商後端系統。</p>
-            <ul class="experience-facts">
-              <li>主導後端架構，串接金流（綠界）、物流（黑貓、大榮）與發票系統。</li>
-              <li>設計運費計算引擎，支援多物流商複雜計費規則並優化出貨理單流程。</li>
-            </ul>
-          </div>
-        </article>
-        <article class="experience-entry experience-entry--compact">
-          <div class="timeline-date"><time datetime="2019-09">2019.09–2020.08</time></div>
-          <div class="experience-body"><h3>康闓 · full-stack</h3><p>全端開發並管理 1–3 人小團隊；Django、Vue、Docker、PostgreSQL。</p></div>
-        </article>
-        <article class="experience-entry experience-entry--compact">
-          <div class="timeline-date"><time datetime="2018-05">2018.05–2019.09</time></div>
-          <div class="experience-body"><h3>Biggo · crawler</h3><p>大規模電商商品資料抓取與反爬蟲對抗；CNN 驗證碼辨識模型準確率 98%。</p></div>
-        </article>
-        <article class="experience-entry experience-entry--compact">
-          <div class="timeline-date"><time datetime="2017-06">2017.06–2018.05</time></div>
-          <div class="experience-body"><h3>卡訊電子</h3><p>前端、Electron 桌面應用與 API 開發。</p></div>
-        </article>
-        <article class="experience-entry experience-entry--compact">
-          <div class="timeline-date"><time datetime="2016-05">2016.05–2017.06</time></div>
-          <div class="experience-body"><h3>鑫翼資訊</h3><p>接案公司後端開發；Flask、MySQL、PostgreSQL。</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="afterword" aria-labelledby="afterword-title">
+    <section class="background-index" aria-labelledby="background-title">
       <div>
-        <p class="section-label">03 / 學歷與技能索引</p>
-        <h2 id="afterword-title">把技術放在<br>能解決問題的位置。</h2>
-        <div class="education">
-          <strong>輔英科技大學 · 資訊工程系</strong>
-          <span>2008 – 2012</span>
-        </div>
+        <p class="section-label">Background index</p>
+        <h2 id="background-title">把技術放在<br>能解決問題的位置。</h2>
+        <div class="education"><strong>輔英科技大學 · 資訊工程系</strong><span>2008 – 2012</span></div>
       </div>
       <div class="skills" aria-label="CakeResume 技能索引">
-        <div class="skill-group"><h3>AI / LLM</h3><p>Multi-Agent 編排、LLM 應用整合、Prompt Engineering、本地／雲端模型部署</p></div>
-        <div class="skill-group"><h3>後端</h3><p>Python、FastAPI、Django、系統架構設計</p></div>
-        <div class="skill-group"><h3>前端</h3><p>TypeScript、React、Next.js</p></div>
-        <div class="skill-group"><h3>資料庫</h3><p>PostgreSQL、MongoDB</p></div>
-        <div class="skill-group"><h3>雲端／DevOps</h3><p>AWS、Docker、GitHub Actions、CI/CD</p></div>
-        <div class="skill-group"><h3>其他</h3><p>大規模爬蟲與反爬蟲、Chrome Extension、Electron</p></div>
+        <div class="skill"><h3>AI / LLM</h3><p>Multi-Agent 編排、LLM 應用整合、Prompt Engineering、本地／雲端模型部署</p></div>
+        <div class="skill"><h3>後端</h3><p>Python、FastAPI、Django、系統架構設計</p></div>
+        <div class="skill"><h3>前端</h3><p>TypeScript、React、Next.js</p></div>
+        <div class="skill"><h3>資料庫</h3><p>PostgreSQL、MongoDB</p></div>
+        <div class="skill"><h3>雲端／DevOps</h3><p>AWS、Docker、GitHub Actions、CI/CD</p></div>
+        <div class="skill"><h3>其他</h3><p>大規模爬蟲與反爬蟲、Chrome Extension、Electron</p></div>
       </div>
     </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div>
-        <p class="section-label">04 / 深入了解</p>
-        <h2 id="contact-title">繼續往下讀。</h2>
-        <p>完整履歷、開源工作與日常觀察，分別留在三個不同的地方。</p>
-      </div>
-      <nav class="contact-links" aria-label="外部個人連結">
-        <a class="contact-link" href="https://www.cake.me/resumes/s724959099">CakeResume ↗</a>
-        <a class="contact-link" href="https://github.com/s724959099">GitHub ↗</a>
-        <a class="contact-link" href="https://www.instagram.com/583_maxwang/">Instagram ↗</a>
+    <footer class="footer">
+      <span>© Max Wang · 王博生 · Principal Engineer / Tech Lead / FDE</span>
+      <nav aria-label="外部個人連結">
+        <a href="https://www.cake.me/resumes/s724959099">CakeResume ↗</a>
+        <a href="https://github.com/s724959099">GitHub ↗</a>
+        <a href="https://www.instagram.com/583_maxwang/">Instagram ↗</a>
       </nav>
-    </section>
-
-    <footer class="footer">© Max Wang · 王博生 · Principal Engineer / Tech Lead / FDE</footer>
+    </footer>
   </main>
 </body>
 </html>
