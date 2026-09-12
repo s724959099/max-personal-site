@@ -28,8 +28,9 @@ test("serves Max's Chinese portfolio landing page", async t => {
   const { port } = server.address();
 
   const response = await fetch(`http://127.0.0.1:${port}/`);
-  await response.text();
+  const page = await response.text();
 
   assert.equal(response.status, 200);
   assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
+  assert.match(page, /aria-label="Max Wang 水墨倒影字標"/);
 });

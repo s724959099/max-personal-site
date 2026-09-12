@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { createServer } from "node:http";
@@ -34,6 +36,8 @@ const server = createServer(async (request, response) => {
   }
 });
 
-server.listen(port, "127.0.0.1", () => {
-  console.log(`Portfolio preview: http://127.0.0.1:${port}/`);
-});
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  server.listen(port, "127.0.0.1", () => {
+    console.log(`Portfolio preview: http://127.0.0.1:${port}/`);
+  });
+}
