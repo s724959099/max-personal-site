@@ -50,7 +50,7 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.doesNotMatch(page, /Principal Engineer \/ Tech Lead/);
   assert.match(page, /<h1 id="about-title">王博生 Max Wang<\/h1>/);
   assert.doesNotMatch(page, /Proof ·/);
-  assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?MLX Whisper/);
+  assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?macOS Vision[\s\S]*?每 6 小時掃一次/);
 
   const wordmark = await fetch(`http://127.0.0.1:${port}/assets/max-wordmark.png`);
   assert.equal(wordmark.status, 200);

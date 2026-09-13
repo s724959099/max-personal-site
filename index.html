@@ -83,12 +83,8 @@
     .wordmark { display: block; width: min(100%, 300px); }
     .wordmark img { display: block; width: 100%; height: auto; }
     .masthead .wordmark { width: min(100%, 320px); }
-    .masthead__copy h1 { max-width: 720px; margin-top: var(--sm); font: 400 clamp(30px, 4vw, 54px) / 1.02 var(--display); letter-spacing: -.045em; }
-    .masthead__copy .masthead__tagline { max-width: 660px; margin-top: var(--md); color: var(--ink); font: 400 clamp(17px, 1.6vw, 21px) / 1.5 var(--display); letter-spacing: -.01em; }
-    .masthead__copy > p { max-width: 630px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
-    .masthead__copy .masthead__lead { margin-top: var(--xl); color: var(--ink); font-size: 16px; }
-    .masthead__note { margin-top: var(--xl); padding-top: var(--lg); border-top: .5px solid var(--line); color: var(--muted); font-size: 13px; }
-    .masthead__note strong { display: block; margin-bottom: var(--sm); color: var(--ink); font: 400 22px / 1.15 var(--display); }
+    .masthead__copy h1 { margin-top: var(--sm); font: 400 clamp(30px, 4vw, 54px) / 1.02 var(--display); letter-spacing: -.045em; }
+    .masthead__tagline { max-width: 33em; margin-top: var(--md); color: var(--ink); font: 400 clamp(17px, 1.6vw, 21px) / 1.5 var(--display); letter-spacing: -.01em; }
 
     .index-section { padding-top: var(--3xl); }
     .index-section__head { padding-bottom: var(--md); border-bottom: .5px solid var(--ink); }
@@ -287,7 +283,7 @@
       <div class="projects-grid">
         <article class="project">
           <div class="project__number">01</div>
-          <div><h3>TG-Type</h3><p>macOS 語音輸入工具，從錄音、轉錄、文字整理到直接貼進前景應用，全程在本機完成。</p><ul class="project__points"><li>ASR 可選本機 MLX Whisper（whisper-large-v3-turbo，離線、零雲端）或 Soniox 雲端串流，後者支援中英夾雜的自動語言切換</li><li>文字整理用單一 LLM 呼叫同時修錯字、補標點與調語氣；後端可切本機 oMLX、OMP 訂閱或 OpenRouter</li><li>從 ASR 原始輸出與最終文字的差異自動萃取術語，高頻詞升級成常駐詞庫，下一次錄音先用</li><li>以 Quartz HID 事件模擬 Cmd+V 直接貼進前景 App；貼不進去時文字仍留在剪貼簿</li></ul></div>
+          <div><h3>TG-Type</h3><p>macOS 語音輸入工具。語音辨識一定會聽錯專有名詞、也不知道你現在在寫什麼，這個工具處理的就是這兩件事。</p><ul class="project__points"><li>錄音前先把詞彙送進辨識引擎：手動指定的詞、系統學過的詞、以及從當下畫面抓到的專名，三層合併後當作 ASR 的提示，容易聽錯的名字先固定住</li><li>用 macOS Vision 在本機 OCR 前景視窗（中英皆可），再由背景模型蒸餾成關鍵詞與主題，交給文字整理修同音字與術語；同時依前景 App 類別決定輸出格式，聊天視窗給短回覆、其他給段落</li><li>每次你手動改過的地方都會被比對出來，通過檢查的術語自動進常用詞庫，下一次錄音就不會再錯</li><li>學習不是無條件累積：每 6 小時掃一次，跨兩天出現三次才升級為常駐詞，並保留一成留出樣本評估效果，沒有幫助的詞會被停用</li><li>整理完直接以 Quartz HID 事件貼進前景 App；貼不進去時文字仍留在剪貼簿</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">02</div>
