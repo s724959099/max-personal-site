@@ -87,28 +87,9 @@
       padding: var(--2xl) 0;
       border-bottom: 1px solid var(--ink);
     }
-    .wordmark {
-      display: inline-grid;
-      width: min(100%, 300px);
-      color: var(--ink);
-    }
-    .masthead .wordmark { width: 230px; transform: scale(.78); transform-origin: left bottom; }
-    .wordmark-line { display: flex; align-items: center; gap: var(--sm); height: 68px; }
-    .wordmark-glyph {
-      width: 92px;
-      height: 68px;
-      flex: 0 0 auto;
-      fill: none;
-      stroke: currentColor;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-width: 10;
-    }
-    .wordmark-letters { font: 400 54px / .8 var(--display); letter-spacing: -.06em; }
-    .wordmark-brush { width: 100%; height: var(--md); margin: calc(var(--sm) * -1) 0; color: var(--accent-dark); opacity: .32; }
-    .wordmark-brush path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 4; }
-    .wordmark-line--bottom { color: color-mix(in srgb, var(--ink) 54%, var(--white-ink)); }
-    .wordmark-line--bottom .wordmark-letters { opacity: .86; }
+    .wordmark { display: block; width: min(100%, 300px); }
+    .wordmark img { display: block; width: 100%; height: auto; }
+    .masthead .wordmark { width: min(100%, 320px); }
     .masthead__copy h1 { max-width: 720px; margin-top: var(--sm); font: 400 clamp(30px, 4vw, 54px) / 1.02 var(--display); letter-spacing: -.045em; }
     .masthead__copy .masthead__tagline { max-width: 660px; margin-top: var(--md); color: var(--ink); font: 400 clamp(17px, 1.6vw, 21px) / 1.5 var(--display); letter-spacing: -.01em; }
     .masthead__copy > p { max-width: 630px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
@@ -254,11 +235,8 @@
   <main class="page" id="content">
     <header class="masthead" aria-labelledby="about-title">
       <div>
-        <div class="wordmark" role="img" aria-label="Max Wang 水墨倒影字標">
-          <svg aria-hidden="true" width="0" height="0"><defs><filter id="wordmark-soft" x="-8%" y="-8%" width="116%" height="116%"><feGaussianBlur stdDeviation=".35" /></filter></defs></svg>
-          <div class="wordmark-line"><svg class="wordmark-glyph" viewBox="50 140 145 120" aria-hidden="true"><path d="M68 238V157C68 151 74 149 79 157L120 207L161 157C166 149 172 151 172 157V238" /></svg><span class="wordmark-letters" aria-hidden="true">ax</span></div>
-          <svg class="wordmark-brush" viewBox="0 0 390 12" preserveAspectRatio="none" aria-hidden="true"><path d="M10 6C62 5 108 7 158 6C212 5 274 7 332 6C354 5 371 6 380 6" stroke-dasharray="72 4 38 3 54 5 96 4 36 3" /></svg>
-          <div class="wordmark-line wordmark-line--bottom"><svg class="wordmark-glyph" viewBox="50 252 145 120" aria-hidden="true"><path d="M68 274V355C68 361 74 363 79 355L120 305L161 355C166 363 172 361 172 355V274" /></svg><span class="wordmark-letters" aria-hidden="true">ang</span></div>
+        <div class="wordmark">
+          <img src="assets/max-wordmark.png" width="1581" height="995" alt="Max Wang 水墨倒影字標" decoding="async">
         </div>
         <p class="section-label">About Me</p>
       </div>
