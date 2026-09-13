@@ -120,7 +120,7 @@
     }
     .project {
       display: grid;
-      grid-template-columns: 78px minmax(0, 1fr);
+      grid-template-columns: 78px minmax(0, 1fr) 64px;
       gap: var(--lg);
       padding: var(--2xl) 0;
       border-bottom: .5px solid color-mix(in srgb, var(--line) 72%, transparent);
@@ -132,6 +132,8 @@
     .project__points { display: grid; gap: var(--sm); max-width: 860px; margin-top: var(--lg); }
     .project__points li { position: relative; padding-left: var(--lg); color: var(--ink-soft); font-size: 13px; }
     .project__points li::before { position: absolute; left: 0; color: var(--accent-dark); content: "—"; }
+    .project__mark { align-self: start; justify-self: end; width: 56px; }
+    .project__mark svg, .project__mark img { display: block; width: 100%; height: auto; }
 
     .skills-index { padding-bottom: var(--3xl); }
     .skills {
@@ -183,6 +185,7 @@
       .experience-entry p { grid-column: 2 / -1; }
       .experience-entry__context { grid-column: 2 / -1; }
       .project { grid-template-columns: 52px minmax(0, 1fr); }
+      .project__mark { display: none; }
       .project__number { font-size: 34px; }
       .skills { grid-template-columns: 1fr; }
       .footer { display: block; }
@@ -283,7 +286,8 @@
       <div class="projects-grid">
         <article class="project">
           <div class="project__number">01</div>
-          <div><h3>TG-Type</h3><p>macOS 語音輸入工具。語音辨識一定會聽錯專有名詞、也不知道你現在在寫什麼，這個工具處理的就是這兩件事。</p><ul class="project__points"><li>錄音前先把詞彙送進辨識引擎：手動指定的詞、系統學過的詞、以及從當下畫面抓到的專名，三層合併後當作 ASR 的提示，容易聽錯的名字先固定住</li><li>用 macOS Vision 在本機 OCR 前景視窗（中英皆可），再由背景模型蒸餾成關鍵詞與主題，交給文字整理修同音字與術語；同時依前景 App 類別決定輸出格式，聊天視窗給短回覆、其他給段落</li><li>每次你手動改過的地方都會被比對出來，通過檢查的術語自動進常用詞庫，下一次錄音就不會再錯</li><li>學習不是無條件累積：每 6 小時掃一次，跨兩天出現三次才升級為常駐詞，並保留一成留出樣本評估效果，沒有幫助的詞會被停用</li><li>整理完直接以 Quartz HID 事件貼進前景 App；貼不進去時文字仍留在剪貼簿</li></ul></div>
+          <div><h3>TG-Type</h3><p>macOS 語音輸入工具。它不是一般的 Whisper：一般的語音辨識會把專有名詞聽成別的字，也不知道你是誰、現在在寫什麼。</p><ul class="project__points"><li>錄音前先把詞彙送進辨識引擎：手動指定的詞、系統學過的詞、以及從當下畫面抓到的專名，三層合併後當作 ASR 的提示，容易聽錯的名字先固定住</li><li>用 macOS Vision 在本機 OCR 前景視窗（中英皆可），再由背景模型蒸餾成關鍵詞與主題，交給文字整理修同音字與術語；同時依前景 App 類別決定輸出格式，聊天視窗給短回覆、其他給段落</li><li>每次你手動改過的地方都會被比對出來，通過檢查的術語自動進常用詞庫，下一次錄音就不會再錯</li><li>學習不是無條件累積：每 6 小時掃一次，跨兩天出現三次才升級為常駐詞，並保留一成留出樣本評估效果，沒有幫助的詞會被停用</li><li>持續打磨操作流程：說完就自動落在你正在打字的地方，快捷鍵、狀態提示與失敗時的退路都做過，讓它在日常工作裡不需要特別配合</li></ul></div>
+          <div class="project__mark"><img src="assets/tg-type-mark.svg" width="64" height="64" alt="TG-Type 標誌" decoding="async"></div>
         </article>
         <article class="project">
           <div class="project__number">02</div>
