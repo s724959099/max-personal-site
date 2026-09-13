@@ -42,9 +42,9 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /https:\/\/github\.com\/s724959099/);
   assert.match(page, /https:\/\/www\.instagram\.com\/583_maxwang\//);
   assert.match(page, /TransglobalUS/);
-  assert.match(page, /Experience index/);
-  assert.match(page, /Side projects index/);
-  assert.match(page, /<h1 id="about-title">[^<]+<\/h1>\s*<p class="masthead__tagline">10\+ 年工程師 — 我做的事，是讓混亂的營運與技術現場變得有人能接手。<\/p>/);
+  assert.match(page, /<h2 id="experience-title">Experience<\/h2>/);
+  assert.match(page, /<h2 id="projects-title">Side projects<\/h2>/);
+  assert.doesNotMatch(page, /latest first|authored systems|six groups/);
   assert.doesNotMatch(page, /輔英科技大學/);
   assert.doesNotMatch(page, /為什麼拆開/);
   assert.doesNotMatch(page, /Principal Engineer \/ Tech Lead/);

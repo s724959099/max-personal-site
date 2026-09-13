@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="王博生 Max Wang — 10+ 年工程師，把混亂的營運與技術現場變成有人能接手的系統。">
   <meta name="theme-color" content="#b9cbc2">
-  <title>王博生 Max Wang — Work index</title>
+  <title>王博生 Max Wang</title>
   <style>
     :root {
       --canvas: #b9cbc2;
@@ -72,13 +72,6 @@
       padding: 0 var(--xl);
       background: var(--white-ink);
     }
-    .section-label, .meta {
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
     .masthead {
       display: grid;
       grid-template-columns: minmax(190px, .5fr) minmax(0, 1.5fr);
@@ -98,16 +91,8 @@
     .masthead__note strong { display: block; margin-bottom: var(--sm); color: var(--ink); font: 400 22px / 1.15 var(--display); }
 
     .index-section { padding-top: var(--3xl); }
-    .index-section__head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: var(--xl);
-      padding-bottom: var(--md);
-      border-bottom: .5px solid var(--ink);
-    }
+    .index-section__head { padding-bottom: var(--md); border-bottom: .5px solid var(--ink); }
     .index-section__head h2 { font: 400 30px / 1.1 var(--display); letter-spacing: -.035em; }
-    .index-section__head p { color: var(--muted); font-size: 12px; }
 
     .experience-index { counter-reset: role; }
     .experience-entry {
@@ -198,8 +183,6 @@
       .masthead { padding: var(--xl) 0; }
       .masthead .wordmark { width: 210px; }
       .index-section { padding-top: var(--2xl); }
-      .index-section__head { display: block; }
-      .index-section__head p { margin-top: var(--sm); }
       .experience-entry { grid-template-columns: 32px minmax(96px, .7fr) minmax(0, 1fr); gap: var(--sm); }
       .experience-entry p { grid-column: 2 / -1; }
       .experience-entry__context { grid-column: 2 / -1; }
@@ -238,7 +221,6 @@
         <div class="wordmark">
           <img src="assets/max-wordmark.png" width="1581" height="995" alt="Max Wang 水墨倒影字標" decoding="async">
         </div>
-        <p class="section-label">About Me</p>
       </div>
       <div class="masthead__copy">
         <h1 id="about-title">王博生 Max Wang</h1>
@@ -248,8 +230,7 @@
 
     <section class="index-section" id="experience" aria-labelledby="experience-title">
       <header class="index-section__head">
-        <h2 id="experience-title">Experience index</h2>
-        <p>latest first · eight roles · employment chronology</p>
+        <h2 id="experience-title">Experience</h2>
       </header>
       <ol class="experience-index">
         <li class="experience-entry">
@@ -301,8 +282,7 @@
 
     <section class="index-section projects-index" id="projects" aria-labelledby="projects-title">
       <header class="index-section__head">
-        <h2 id="projects-title">Side projects index</h2>
-        <p>authored systems · four entries</p>
+        <h2 id="projects-title">Side projects</h2>
       </header>
       <div class="projects-grid">
         <article class="project">
@@ -326,8 +306,7 @@
 
     <section class="index-section skills-index" id="skills" aria-labelledby="skills-title">
       <header class="index-section__head">
-        <h2 id="skills-title">Skills index</h2>
-        <p>常用的工具與技術棧 · six groups</p>
+        <h2 id="skills-title">常用的工具與技術棧</h2>
       </header>
       <div class="skills">
         <div class="skill"><h3>AI / LLM</h3><p>Multi-Agent 編排、LLM 應用整合、Prompt Engineering、本地／雲端模型部署</p></div>
