@@ -9,6 +9,7 @@ async function servePortfolio() {
       ["/", ["index.html", "text/html; charset=utf-8"]],
       ["/assets/max-wordmark.png", ["assets/max-wordmark.png", "image/png"]],
       ["/assets/tg-type-mark.svg", ["assets/tg-type-mark.svg", "image/svg+xml"]],
+      ["/assets/ai-123-mark.svg", ["assets/ai-123-mark.svg", "image/svg+xml"]],
     ]);
     const entry = paths.get(request.url);
     if (!entry) {
@@ -54,8 +55,12 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?macOS Vision[\s\S]*?每 6 小時掃一次/);
   assert.match(page, /<div class="project__title"><h3>TG-Type<\/h3><span class="project__mark"><img src="assets\/tg-type-mark\.svg"[^>]*alt="TG-Type 標誌"/);
   assert.doesNotMatch(page, /Quartz HID/);
-  assert.match(page, /<h3>OMP<\/h3>[\s\S]*?gateway[\s\S]*?daemon[\s\S]*?每 12 小時/);
-  assert.doesNotMatch(page, /D1–D8|subagent 覆蓋矩陣/);
+  assert.match(page, /<h3>OMP<\/h3>[\s\S]*?omp-home[\s\S]*?cmux-console[\s\S]*?omp-memory/);
+  assert.doesNotMatch(page, /D1–D8|subagent 覆蓋矩陣|每 12 小時/);
+  assert.match(page, /<h3>Kodama<\/h3>[\s\S]*?身份代理[\s\S]*?專案記憶/);
+  assert.match(page, /<h3>AI 123<\/h3><span class="project__mark"><img src="assets\/ai-123-mark\.svg"[^>]*alt="AI 123 標誌"/);
+  assert.match(page, /個人 Jarvis/);
+  assert.doesNotMatch(page, /眼動追蹤/);
 
   const wordmark = await fetch(`http://127.0.0.1:${port}/assets/max-wordmark.png`);
   assert.equal(wordmark.status, 200);
