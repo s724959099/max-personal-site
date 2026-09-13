@@ -44,4 +44,6 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.doesNotMatch(page, /為什麼拆開/);
   assert.doesNotMatch(page, /Principal Engineer \/ Tech Lead/);
   assert.match(page, /<h1 id="about-title">王博生 Max Wang<\/h1>/);
+  assert.doesNotMatch(page, /Proof ·/);
+  assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?MLX Whisper/);
 });
