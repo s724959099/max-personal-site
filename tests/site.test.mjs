@@ -10,6 +10,7 @@ async function servePortfolio() {
       ["/assets/max-wordmark.png", ["assets/max-wordmark.png", "image/png"]],
       ["/assets/tg-type-mark.svg", ["assets/tg-type-mark.svg", "image/svg+xml"]],
       ["/assets/ai-123-mark.svg", ["assets/ai-123-mark.svg", "image/svg+xml"]],
+      ["/assets/ai-health-mark.svg", ["assets/ai-health-mark.svg", "image/svg+xml"]],
     ]);
     const entry = paths.get(request.url);
     if (!entry) {
@@ -61,6 +62,8 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /<h3>AI 123<\/h3><span class="project__mark"><img src="assets\/ai-123-mark\.svg"[^>]*alt="AI 123 標誌"/);
   assert.match(page, /個人 Jarvis/);
   assert.doesNotMatch(page, /眼動追蹤/);
+  assert.match(page, /<h3>AI Health<\/h3><span class="project__mark"><img src="assets\/ai-health-mark\.svg"[^>]*alt="AI Health 標誌"/);
+  assert.match(page, /個人健康教練[\s\S]*?掃包裝條碼[\s\S]*?智慧戒指[\s\S]*?Expo/);
 
   const wordmark = await fetch(`http://127.0.0.1:${port}/assets/max-wordmark.png`);
   assert.equal(wordmark.status, 200);
