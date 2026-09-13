@@ -53,17 +53,19 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.doesNotMatch(page, /Principal Engineer \/ Tech Lead/);
   assert.match(page, /<h1 id="about-title">王博生 Max Wang<\/h1>/);
   assert.doesNotMatch(page, /Proof ·/);
-  assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?macOS Vision[\s\S]*?每 6 小時掃一次/);
+  assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?畫面上的字[\s\S]*?常用詞庫/);
   assert.match(page, /<div class="project__title"><h3>TG-Type<\/h3><span class="project__mark"><img src="assets\/tg-type-mark\.svg"[^>]*alt="TG-Type 標誌"/);
   assert.doesNotMatch(page, /Quartz HID/);
-  assert.match(page, /<h3>OMP<\/h3>[\s\S]*?omp-home[\s\S]*?cmux-console[\s\S]*?omp-memory/);
-  assert.doesNotMatch(page, /D1–D8|subagent 覆蓋矩陣|每 12 小時/);
-  assert.match(page, /<h3>Kodama<\/h3>[\s\S]*?身份代理[\s\S]*?專案記憶/);
+  assert.match(page, /<h3>OMP<\/h3>[\s\S]*?harness[\s\S]*?我的分身[\s\S]*?靠關卡/);
+  assert.doesNotMatch(page, /omp-home|cmux-console|omp-memory|D1–D8|每 4 秒|59 個|一千多次/);
+  assert.match(page, /<h3>Kodama<\/h3>[\s\S]*?Discord[\s\S]*?同一份記憶[\s\S]*?我自己定的/);
+  assert.doesNotMatch(page, /BM25|身份代理/);
   assert.match(page, /<h3>AI 123<\/h3><span class="project__mark"><img src="assets\/ai-123-mark\.svg"[^>]*alt="AI 123 標誌"/);
-  assert.match(page, /個人 Jarvis/);
-  assert.doesNotMatch(page, /眼動追蹤/);
+  assert.match(page, /個人 Jarvis[\s\S]*?切換 App[\s\S]*?螢幕上的內容/);
+  assert.doesNotMatch(page, /眼動追蹤|24kHz/);
   assert.match(page, /<h3>AI Health<\/h3><span class="project__mark"><img src="assets\/ai-health-mark\.svg"[^>]*alt="AI Health 標誌"/);
-  assert.match(page, /個人健康教練[\s\S]*?掃包裝條碼[\s\S]*?智慧戒指[\s\S]*?Expo/);
+  assert.match(page, /個人健身教練[\s\S]*?衛福部的食品營養成分資料庫[\s\S]*?基礎代謝[\s\S]*?找附近有什麼能吃/);
+  assert.doesNotMatch(page, /條碼|智慧戒指|抽血報告/);
 
   const wordmark = await fetch(`http://127.0.0.1:${port}/assets/max-wordmark.png`);
   assert.equal(wordmark.status, 200);
