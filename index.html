@@ -125,7 +125,7 @@
       padding: var(--2xl) 0;
       border-bottom: .5px solid color-mix(in srgb, var(--line) 72%, transparent);
     }
-    .project:nth-child(4) { border-bottom: 0; }
+    .project:last-child { border-bottom: 0; }
     .project__number { color: var(--accent-dark); font: 400 46px / .9 var(--display); letter-spacing: -.04em; }
     .project h3 { font: 400 30px / 1.05 var(--display); letter-spacing: -.035em; }
     .project__title { display: flex; align-items: center; gap: var(--sm); }
@@ -286,23 +286,23 @@
       <div class="projects-grid">
         <article class="project">
           <div class="project__number">01</div>
-          <div><div class="project__title"><h3>TG-Type</h3><span class="project__mark"><img src="assets/tg-type-mark.svg" width="64" height="64" alt="TG-Type 標誌" decoding="async"></span></div><p>macOS 語音輸入工具。它不是一般的 Whisper：一般的語音辨識會把專有名詞聽成別的字，也不知道你是誰、現在在寫什麼。</p><ul class="project__points"><li>錄音前先把詞彙送進辨識引擎：手動指定的詞、系統學過的詞、以及從當下畫面抓到的專名，三層合併後當作 ASR 的提示，容易聽錯的名字先固定住</li><li>用 macOS Vision 在本機 OCR 前景視窗（中英皆可），再由背景模型蒸餾成關鍵詞與主題，交給文字整理修同音字與術語；同時依前景 App 類別決定輸出格式，聊天視窗給短回覆、其他給段落</li><li>每次你手動改過的地方都會被比對出來，通過檢查的術語自動進常用詞庫，下一次錄音就不會再錯</li><li>學習不是無條件累積：每 6 小時掃一次，跨兩天出現三次才升級為常駐詞，並保留一成留出樣本評估效果，沒有幫助的詞會被停用</li><li>持續打磨操作流程：說完就自動落在你正在打字的地方，快捷鍵、狀態提示與失敗時的退路都做過，讓它在日常工作裡不需要特別配合</li></ul></div>
+          <div><div class="project__title"><h3>TG-Type</h3><span class="project__mark"><img src="assets/tg-type-mark.svg" width="64" height="64" alt="TG-Type 標誌" decoding="async"></span></div><p>macOS 上的語音輸入。語音辨識一定會把專有名詞聽成別的字，也不知道你現在正在寫什麼，這支工具就是在補這兩件事。</p><ul class="project__points"><li>錄音前先把可能會用到的詞交給辨識引擎：我自己指定的、它學過的，還有從畫面上抓到的名字，容易聽錯的先固定住</li><li>它會看你現在的視窗：把畫面上的字當成背景，用來修同音字和術語；聊天視窗給短句，其他給段落</li><li>你手動改過的地方會被記下來，確認沒問題的詞就進常用詞庫，下次不會再錯；沒幫上忙的詞會被停用</li><li>說完的字直接落在你正在打字的地方，日常用不需要特別配合它</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">02</div>
-          <div><div class="project__title"><h3>Kodama</h3></div><p>自行設計的 multi-agent 開發系統。早期的定位是身份代理——讓多個 agent 以不同身份分工，把一件事從 issue 推到合併；現在重心移到個人專屬的專案記憶。</p><ul class="project__points"><li>記憶層是混合檢索：BM25 加向量、實體圖譜與時間加權，回答問題時先把相關的偏好、決策與工作脈絡撈回來</li><li>七個環節各自獨立的 workflow：issue 建立、定性、規劃、開發、審查、收 PR，每環輸出結構化結果給下一環</li><li>巡檢 workflow 定期掃描各環的健康指標與回歸基線，由 agent 指出瓶頸並提出改法</li><li>Discord／Telegram／Slack 通道支援串流回覆與排程推送；WIP 閘門擋住同時開太多工作</li></ul></div>
+          <div><div class="project__title"><h3>Kodama</h3></div><p>當時沒有現成工具能從聊天視窗指揮開發，我就自己做了一套；後來 Hermes 把派工這塊補上，Kodama 就慢慢轉成我個人專案的專屬記憶。</p><ul class="project__points"><li>一開始的用法是在手機上用 Discord 或 Telegram 丟一句需求就開工，不必坐在電腦前，也不必等前一件做完</li><li>各平台、各 channel 的對話會被收攏成同一份記憶，背景持續整理，不是散在各自的聊天紀錄裡</li><li>問它問題時會先把相關的偏好、決策和當時的脈絡撈回來當依據，而不是從零開始猜</li><li>開發流程是我自己定的：從開 issue、定性、規劃、實作、審查到收 PR，每一段各自獨立，輸出交給下一段接手</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">03</div>
-          <div><div class="project__title"><h3>OMP</h3></div><p>我每天在用的 AI 工作環境，由三個各管一件事的專案組成：<strong>omp-home</strong> 是規則與能力的控制面，<strong>cmux-console</strong> 讓全機的 session 互相看得見、互相派工，<strong>omp-memory</strong> 把做過的事變成可以被回想的記憶。</p><ul class="project__points"><li>控制面只有一份：跨專案的規則、技能、角色與生命週期 hooks 全部集中，59 個 domain skill 按觸發條件載入，換到別的專案不用重新教一次</li><li>常駐 daemon 每 4 秒掃一次全機 session，一個終端面板就看完誰在做什麼；session 之間可以直接傳訊息、把任務派給正空著的那個，也能一次開一批新的</li><li>對外是一個帶認證的介面加通道，手機在外面就能盤點現況、開新 session、下指令，人不在電腦前也能把事情推進</li><li>記憶不是存檔：從 session 紀錄蒸餾成帶時效的記憶單元（何時知道、何時失效、被什麼取代），分全機通用與單一專案兩種範圍，取用時做全文檢索並依專案與類型加權</li><li>每 4 小時結算一份活動摘要（做完什麼、卡在哪）並保留兩週；蒸餾與回想由獨立設定的分身 agent 執行，不佔用我本人的工作 session</li></ul></div>
+          <div><div class="project__title"><h3>OMP</h3></div><p>我自己做的一套 harness：把我的開發流程寫進工具本身，讓需要我盯著的部分越來越少。</p><ul class="project__points"><li>同一份規則帶著走，換到別的專案不用重新教一次；同時開著的幾個 session 互相看得見，手上的東西可以直接交給旁邊那個</li><li>裡面有一個我的分身，負責判斷一件事可以讓 AI 自己做完，還是得停下來等我決定。日常的放手讓它走完，真正要拍板的才找我</li><li>流程不靠自律，靠關卡：每次改動先隔離到獨立工作區，要寫進主線會被擋掉，測試沒跑過也推不出去</li><li>做過的事會變成它的記憶，下次遇到類似的情況不用從頭講一遍</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">04</div>
-          <div><div class="project__title"><h3>AI 123</h3><span class="project__mark"><img src="assets/ai-123-mark.svg" width="512" height="512" alt="AI 123 標誌" decoding="async"></span></div><p>桌面上的個人 Jarvis：用語音跟它聊，它看得見你的畫面、動得了你的電腦，也記得你的個人資料。</p><ul class="project__points"><li>語音是雙向的：熱鍵開口說，24kHz 串流即時辨識，回覆直接用語音播出並同步上字幕</li><li>真的能操作這台電腦：點擊、拖曳、滾動、打字、開啟 App，並讀取前景視窗與焦點元素來決定往哪裡下手</li><li>看得見螢幕：擷取畫面與可存取性資訊作為判斷依據，不只依賴你打出來的字</li><li>個人記憶有生命週期：先抽出候選、經確認才寫入，可以取代或刪除，讓它知道你的習慣而不是亂記</li></ul></div>
+          <div><div class="project__title"><h3>AI 123</h3><span class="project__mark"><img src="assets/ai-123-mark.svg" width="512" height="512" alt="AI 123 標誌" decoding="async"></span></div><p>桌面上的個人 Jarvis：不用打字，講一句話就請它幫你把事情做掉。</p><ul class="project__points"><li>你用講話交代事情，它也用講話回你，同時把字打在畫面上，不必停下手邊的事去看訊息</li><li>「這個表格幫我填完」「把這段複製到那邊」這類雜事可以交給它：它自己點擊、打字、切換 App 做完</li><li>它讀得懂你螢幕上的內容，可以直接問「這頁在說什麼」「剛剛那個錯誤是什麼意思」，不用自己貼上來</li><li>它會記住你的習慣和常用資料，下次交代同一件事不用再解釋一遍</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">05</div>
-          <div><div class="project__title"><h3>AI Health</h3><span class="project__mark"><img src="assets/ai-health-mark.svg" width="64" height="64" alt="AI Health 標誌" decoding="async"></span></div><p>手機上的個人健康教練。抽血報告一年只有一張，穿戴裝置天天給數字卻沒有基準線；這支 App 想接的是中間那條線：每天吃了什麼、身體怎麼變，交給一個會追問的教練陪你看。</p><ul class="project__points"><li>用聊天記錄飲食：打字、拍照或掃包裝條碼都可以，模型先解析份量與熱量，再跟官方食品資料對照，估錯了直接跟它說就會改</li><li>不是只會回文字：對話會被判斷意圖後路由到具體動作——記一餐、修正上一餐、回報今天進度、更新目標與體重、找附近的東西吃</li><li>每天的攝取、體重與體組成都留在同一份資料裡，看得到曲線而不是單次數字</li><li>身體資料直接從裝置來：App 以藍牙連上智慧戒指讀取指標，不必手動抄</li><li>iOS/Android 用 Expo 打同一份程式，後端是共用的 HTTP 服務，已部署上線並有瀏覽器端的端對端測試守著主要流程</li></ul></div>
+          <div><div class="project__title"><h3>AI Health</h3><span class="project__mark"><img src="assets/ai-health-mark.svg" width="64" height="64" alt="AI Health 標誌" decoding="async"></span></div><p>手機上的個人健身教練。飲食紀錄最難的一直不是看數字，是每餐都要自己查、自己填——所以我把輸入縮到講一句話、拍一張照就結束。</p><ul class="project__points"><li>拍一張照就能記一餐：它認出你吃的是什麼，熱量和營養去查衛福部的食品營養成分資料庫，再按這一份的份量換算，不是讓模型憑印象給個數字；估錯了跟它說一聲就改</li><li>每天能吃多少也是算出來的：依身體組成量到的基礎代謝加上活動量，再往下推蛋白質和脂肪各該吃多少</li><li>依每天累積的紀錄給建議，包括現在適合吃什麼；體重和體組成留成曲線，不是看單次數字</li><li>跟它講話它會先判斷你想幹嘛再動作——記一餐、改上一餐、看今天進度、找附近有什麼能吃</li></ul></div>
         </article>
       </div>
     </section>
@@ -312,11 +312,11 @@
         <h2 id="skills-title">常用的工具與技術棧</h2>
       </header>
       <div class="skills">
-        <div class="skill"><h3>AI / LLM</h3><p>Multi-Agent 編排、LLM 應用整合、Prompt Engineering、本地／雲端模型部署</p></div>
+        <div class="skill"><h3>AI / LLM</h3><p>Multi-Agent 編排、LLM 應用整合、RAG 與記憶系統、Prompt Engineering</p></div>
         <div class="skill"><h3>後端</h3><p>Python、FastAPI、Django、系統架構設計</p></div>
-        <div class="skill"><h3>前端</h3><p>TypeScript、React、Next.js</p></div>
+        <div class="skill"><h3>前端</h3><p>TypeScript、React、Next.js、Vue</p></div>
         <div class="skill"><h3>資料庫</h3><p>PostgreSQL、MongoDB</p></div>
-        <div class="skill"><h3>雲端／DevOps</h3><p>AWS、Docker、GitHub Actions、CI/CD</p></div>
+        <div class="skill"><h3>雲端／DevOps</h3><p>AWS、Docker、GitHub Actions、CI/CD、本地／雲端模型部署</p></div>
         <div class="skill"><h3>其他</h3><p>大規模爬蟲與反爬蟲、Chrome Extension、Electron</p></div>
       </div>
     </section>
