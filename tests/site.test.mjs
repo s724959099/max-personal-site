@@ -52,8 +52,10 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /<h1 id="about-title">王博生 Max Wang<\/h1>/);
   assert.doesNotMatch(page, /Proof ·/);
   assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?macOS Vision[\s\S]*?每 6 小時掃一次/);
-  assert.match(page, /<div class="project__mark"><img src="assets\/tg-type-mark\.svg"[^>]*alt="TG-Type 標誌"/);
+  assert.match(page, /<div class="project__title"><h3>TG-Type<\/h3><span class="project__mark"><img src="assets\/tg-type-mark\.svg"[^>]*alt="TG-Type 標誌"/);
   assert.doesNotMatch(page, /Quartz HID/);
+  assert.match(page, /<h3>OMP<\/h3>[\s\S]*?gateway[\s\S]*?daemon[\s\S]*?每 12 小時/);
+  assert.doesNotMatch(page, /D1–D8|subagent 覆蓋矩陣/);
 
   const wordmark = await fetch(`http://127.0.0.1:${port}/assets/max-wordmark.png`);
   assert.equal(wordmark.status, 200);

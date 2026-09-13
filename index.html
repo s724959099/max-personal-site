@@ -120,7 +120,7 @@
     }
     .project {
       display: grid;
-      grid-template-columns: 78px minmax(0, 1fr) 64px;
+      grid-template-columns: 78px minmax(0, 1fr);
       gap: var(--lg);
       padding: var(--2xl) 0;
       border-bottom: .5px solid color-mix(in srgb, var(--line) 72%, transparent);
@@ -128,12 +128,13 @@
     .project:nth-child(4) { border-bottom: 0; }
     .project__number { color: var(--accent-dark); font: 400 46px / .9 var(--display); letter-spacing: -.04em; }
     .project h3 { font: 400 30px / 1.05 var(--display); letter-spacing: -.035em; }
+    .project__title { display: flex; align-items: center; gap: var(--sm); }
     .project p { max-width: 720px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
     .project__points { display: grid; gap: var(--sm); max-width: 860px; margin-top: var(--lg); }
     .project__points li { position: relative; padding-left: var(--lg); color: var(--ink-soft); font-size: 13px; }
     .project__points li::before { position: absolute; left: 0; color: var(--accent-dark); content: "—"; }
-    .project__mark { align-self: start; justify-self: end; width: 56px; }
-    .project__mark svg, .project__mark img { display: block; width: 100%; height: auto; }
+    .project__mark { flex: none; width: 26px; }
+    .project__mark img { display: block; width: 100%; height: auto; }
 
     .skills-index { padding-bottom: var(--3xl); }
     .skills {
@@ -185,7 +186,6 @@
       .experience-entry p { grid-column: 2 / -1; }
       .experience-entry__context { grid-column: 2 / -1; }
       .project { grid-template-columns: 52px minmax(0, 1fr); }
-      .project__mark { display: none; }
       .project__number { font-size: 34px; }
       .skills { grid-template-columns: 1fr; }
       .footer { display: block; }
@@ -286,8 +286,7 @@
       <div class="projects-grid">
         <article class="project">
           <div class="project__number">01</div>
-          <div><h3>TG-Type</h3><p>macOS 語音輸入工具。它不是一般的 Whisper：一般的語音辨識會把專有名詞聽成別的字，也不知道你是誰、現在在寫什麼。</p><ul class="project__points"><li>錄音前先把詞彙送進辨識引擎：手動指定的詞、系統學過的詞、以及從當下畫面抓到的專名，三層合併後當作 ASR 的提示，容易聽錯的名字先固定住</li><li>用 macOS Vision 在本機 OCR 前景視窗（中英皆可），再由背景模型蒸餾成關鍵詞與主題，交給文字整理修同音字與術語；同時依前景 App 類別決定輸出格式，聊天視窗給短回覆、其他給段落</li><li>每次你手動改過的地方都會被比對出來，通過檢查的術語自動進常用詞庫，下一次錄音就不會再錯</li><li>學習不是無條件累積：每 6 小時掃一次，跨兩天出現三次才升級為常駐詞，並保留一成留出樣本評估效果，沒有幫助的詞會被停用</li><li>持續打磨操作流程：說完就自動落在你正在打字的地方，快捷鍵、狀態提示與失敗時的退路都做過，讓它在日常工作裡不需要特別配合</li></ul></div>
-          <div class="project__mark"><img src="assets/tg-type-mark.svg" width="64" height="64" alt="TG-Type 標誌" decoding="async"></div>
+          <div><div class="project__title"><h3>TG-Type</h3><span class="project__mark"><img src="assets/tg-type-mark.svg" width="64" height="64" alt="TG-Type 標誌" decoding="async"></span></div><p>macOS 語音輸入工具。它不是一般的 Whisper：一般的語音辨識會把專有名詞聽成別的字，也不知道你是誰、現在在寫什麼。</p><ul class="project__points"><li>錄音前先把詞彙送進辨識引擎：手動指定的詞、系統學過的詞、以及從當下畫面抓到的專名，三層合併後當作 ASR 的提示，容易聽錯的名字先固定住</li><li>用 macOS Vision 在本機 OCR 前景視窗（中英皆可），再由背景模型蒸餾成關鍵詞與主題，交給文字整理修同音字與術語；同時依前景 App 類別決定輸出格式，聊天視窗給短回覆、其他給段落</li><li>每次你手動改過的地方都會被比對出來，通過檢查的術語自動進常用詞庫，下一次錄音就不會再錯</li><li>學習不是無條件累積：每 6 小時掃一次，跨兩天出現三次才升級為常駐詞，並保留一成留出樣本評估效果，沒有幫助的詞會被停用</li><li>持續打磨操作流程：說完就自動落在你正在打字的地方，快捷鍵、狀態提示與失敗時的退路都做過，讓它在日常工作裡不需要特別配合</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">02</div>
@@ -295,7 +294,7 @@
         </article>
         <article class="project">
           <div class="project__number">03</div>
-          <div><h3>OMP</h3><p>跨專案的工程工作環境，把開發紀律寫成可執行的規則，而不是只寫在文件裡。</p><ul class="project__points"><li>D1–D8 開發紀律由 hooks 強制：worktree 隔離、行為紅燈先行、交付狀態誠實、模組化 gate</li><li>subagent 覆蓋矩陣規定一崗一物、寫者不自評，每個角色的權限與交付物都明確</li><li>模型分層路由（@smol／@task／@designer／@plan／@slow）把成本與能力對齊到工作性質</li><li>50+ 個 domain skill 按觸發條件載入，加上 session memory 與 managed skill 的長期累積</li></ul></div>
+          <div><h3>OMP</h3><p>把整台電腦變成一個可以指揮的 AI 工作現場：同時跑著十幾個 agent session，彼此看得見、可以互相派工，而我在外面用手機就能操控。</p><ul class="project__points"><li>自己做的 gateway 統一收編能力：內建工具與外部 MCP／HTTP 服務都登記在同一份目錄，呼叫端不必知道背後是誰，換供應商不用改用法</li><li>常駐 daemon 管理全機 session：看得到每個 session 現在在做什麼、把任務派給空著的那個、一次開 1–8 個新 session、agent 之間直接傳訊息，還有每個工作區的工頭負責彙整</li><li>對外一個帶認證的 HTTP 介面加上通道，手機在外面就能盤點、開新 session、下指令，人不在電腦前也能把事情推進</li><li>記憶層不只是存檔：每次開場先讀近 7 天的摘要（做完什麼、答應了什麼、卡在哪），再接回相關片段；另有每 12 小時一輪的反省與自我優化循環，用我的判準去修它自己的規則</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">04</div>
