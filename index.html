@@ -167,7 +167,9 @@
     .project__number { color: var(--accent-dark); font: 400 46px / .9 var(--display); letter-spacing: -.04em; }
     .project h3 { font: 400 30px / 1.05 var(--display); letter-spacing: -.035em; }
     .project p { max-width: 720px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
-    .project__proof { margin-top: var(--md); color: var(--accent-dark) !important; font-size: 12px !important; }
+    .project__points { display: grid; gap: var(--sm); max-width: 860px; margin-top: var(--lg); }
+    .project__points li { position: relative; padding-left: var(--lg); color: var(--ink-soft); font-size: 13px; }
+    .project__points li::before { position: absolute; left: 0; color: var(--accent-dark); content: "—"; }
 
     .skills-index { padding-bottom: var(--3xl); }
     .skills {
@@ -327,19 +329,19 @@
       <div class="projects-grid">
         <article class="project">
           <div class="project__number">01</div>
-          <div><h3>TG-Type</h3><p>macOS 語音輸入工具，把 ASR 轉錄、LLM smart format、選取文字重寫與個人化學習接起來；從 corrections 與 preferences 裡持續理解使用者。</p><p class="project__proof">Proof · 本機 LLM timeout 時 fallback 原始轉錄，不掉字。</p></div>
+          <div><h3>TG-Type</h3><p>macOS 語音輸入工具，從錄音、轉錄、文字整理到直接貼進前景應用，全程在本機完成。</p><ul class="project__points"><li>ASR 可選本機 MLX Whisper（whisper-large-v3-turbo，離線、零雲端）或 Soniox 雲端串流，後者支援中英夾雜的自動語言切換</li><li>文字整理用單一 LLM 呼叫同時修錯字、補標點與調語氣；後端可切本機 oMLX、OMP 訂閱或 OpenRouter</li><li>從 ASR 原始輸出與最終文字的差異自動萃取術語，高頻詞升級成常駐詞庫，下一次錄音先用</li><li>以 Quartz HID 事件模擬 Cmd+V 直接貼進前景 App；貼不進去時文字仍留在剪貼簿</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">02</div>
-          <div><h3>Kodama</h3><p>自行設計的 multi-agent 開發系統，把 workflow 編排、權責隔離與 self-improving 機制放進同一個可演進工具，並以 RAG / memory 保存偏好、決策與工作 context。</p><p class="project__proof">Proof · Web UI、Discord、schedule 可接回脈絡。</p></div>
+          <div><h3>Kodama</h3><p>自行設計的 multi-agent 開發系統，把一件事從 issue 到合併的整段流程交給互相分工的 agent 執行。</p><ul class="project__points"><li>七個環節各自獨立的 workflow：issue 建立、定性、規劃、開發、審查、收 PR，每環輸出結構化結果給下一環</li><li>巡檢 workflow 定期掃描各環的健康指標與回歸基線，由 agent 指出瓶頸並提出改法</li><li>記憶層是 BM25 + 向量的混合檢索，加上實體圖譜與時間加權，用來接回偏好、決策與工作脈絡</li><li>Discord／Telegram／Slack 通道支援串流回覆與排程推送；WIP 閘門擋住同時開太多工作</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">03</div>
-          <div><h3>OMP</h3><p>跨專案工程工具鏈，把 rules、skills、hooks、extensions、session recap、worktree、verification 與 delivery 收斂成一致邊界，讓工作可恢復、可委派、可驗證。</p><p class="project__proof">Proof · rules、hooks、worktree 與 verification 同一邊界。</p></div>
+          <div><h3>OMP</h3><p>跨專案的工程工作環境，把開發紀律寫成可執行的規則，而不是只寫在文件裡。</p><ul class="project__points"><li>D1–D8 開發紀律由 hooks 強制：worktree 隔離、行為紅燈先行、交付狀態誠實、模組化 gate</li><li>subagent 覆蓋矩陣規定一崗一物、寫者不自評，每個角色的權限與交付物都明確</li><li>模型分層路由（@smol／@task／@designer／@plan／@slow）把成本與能力對齊到工作性質</li><li>50+ 個 domain skill 按觸發條件載入，加上 session memory 與 managed skill 的長期累積</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">04</div>
-          <div><h3>AI 123</h3><p>AI 工具、教學與工作方法的公開整理入口，保留實驗與結論的關係，讓 AI 工作可以被重新閱讀。</p><p class="project__proof">Proof · 用案例與操作紀錄形成可追溯索引。</p></div>
+          <div><h3>AI 123</h3><p>規格先行的終端 AI 互動框架，把語音、眼動、繪圖與記憶做成可嵌入的能力，而不是一個聊天視窗。</p><ul class="project__points"><li>語音是雙向通道：串流辨識與合成，支援多語言</li><li>眼動追蹤同時看 gaze、pupil 與 blink 三軸，延遲目標訂在 100ms 以內</li><li>直接在終端即時繪圖與渲染介面，不依賴瀏覽器</li><li>每個能力先寫 spec 再實作，架構決策（Terminal UI、token budgeting、task contract、資料隱私）獨立留檔</li></ul></div>
         </article>
       </div>
     </section>
