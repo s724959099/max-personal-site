@@ -290,15 +290,15 @@
         </article>
         <article class="project">
           <div class="project__number">02</div>
-          <div><h3>Kodama</h3><p>自行設計的 multi-agent 開發系統，把一件事從 issue 到合併的整段流程交給互相分工的 agent 執行。</p><ul class="project__points"><li>七個環節各自獨立的 workflow：issue 建立、定性、規劃、開發、審查、收 PR，每環輸出結構化結果給下一環</li><li>巡檢 workflow 定期掃描各環的健康指標與回歸基線，由 agent 指出瓶頸並提出改法</li><li>記憶層是 BM25 + 向量的混合檢索，加上實體圖譜與時間加權，用來接回偏好、決策與工作脈絡</li><li>Discord／Telegram／Slack 通道支援串流回覆與排程推送；WIP 閘門擋住同時開太多工作</li></ul></div>
+          <div><div class="project__title"><h3>Kodama</h3></div><p>自行設計的 multi-agent 開發系統。早期的定位是身份代理——讓多個 agent 以不同身份分工，把一件事從 issue 推到合併；現在重心移到個人專屬的專案記憶。</p><ul class="project__points"><li>記憶層是混合檢索：BM25 加向量、實體圖譜與時間加權，回答問題時先把相關的偏好、決策與工作脈絡撈回來</li><li>七個環節各自獨立的 workflow：issue 建立、定性、規劃、開發、審查、收 PR，每環輸出結構化結果給下一環</li><li>巡檢 workflow 定期掃描各環的健康指標與回歸基線，由 agent 指出瓶頸並提出改法</li><li>Discord／Telegram／Slack 通道支援串流回覆與排程推送；WIP 閘門擋住同時開太多工作</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">03</div>
-          <div><h3>OMP</h3><p>把整台電腦變成一個可以指揮的 AI 工作現場：同時跑著十幾個 agent session，彼此看得見、可以互相派工，而我在外面用手機就能操控。</p><ul class="project__points"><li>自己做的 gateway 統一收編能力：內建工具與外部 MCP／HTTP 服務都登記在同一份目錄，呼叫端不必知道背後是誰，換供應商不用改用法</li><li>常駐 daemon 管理全機 session：看得到每個 session 現在在做什麼、把任務派給空著的那個、一次開 1–8 個新 session、agent 之間直接傳訊息，還有每個工作區的工頭負責彙整</li><li>對外一個帶認證的 HTTP 介面加上通道，手機在外面就能盤點、開新 session、下指令，人不在電腦前也能把事情推進</li><li>記憶層不只是存檔：每次開場先讀近 7 天的摘要（做完什麼、答應了什麼、卡在哪），再接回相關片段；另有每 12 小時一輪的反省與自我優化循環，用我的判準去修它自己的規則</li></ul></div>
+          <div><div class="project__title"><h3>OMP</h3></div><p>我每天在用的 AI 工作環境，由三個各管一件事的專案組成：<strong>omp-home</strong> 是規則與能力的控制面，<strong>cmux-console</strong> 讓全機的 session 互相看得見、互相派工，<strong>omp-memory</strong> 把做過的事變成可以被回想的記憶。</p><ul class="project__points"><li>控制面只有一份：跨專案的規則、技能、角色與生命週期 hooks 全部集中，59 個 domain skill 按觸發條件載入，換到別的專案不用重新教一次</li><li>常駐 daemon 每 4 秒掃一次全機 session，一個終端面板就看完誰在做什麼；session 之間可以直接傳訊息、把任務派給正空著的那個，也能一次開一批新的</li><li>對外是一個帶認證的介面加通道，手機在外面就能盤點現況、開新 session、下指令，人不在電腦前也能把事情推進</li><li>記憶不是存檔：從 session 紀錄蒸餾成帶時效的記憶單元（何時知道、何時失效、被什麼取代），分全機通用與單一專案兩種範圍，取用時做全文檢索並依專案與類型加權</li><li>每 4 小時結算一份活動摘要（做完什麼、卡在哪）並保留兩週；蒸餾與回想由獨立設定的分身 agent 執行，不佔用我本人的工作 session</li></ul></div>
         </article>
         <article class="project">
           <div class="project__number">04</div>
-          <div><h3>AI 123</h3><p>規格先行的終端 AI 互動框架，把語音、眼動、繪圖與記憶做成可嵌入的能力，而不是一個聊天視窗。</p><ul class="project__points"><li>語音是雙向通道：串流辨識與合成，支援多語言</li><li>眼動追蹤同時看 gaze、pupil 與 blink 三軸，延遲目標訂在 100ms 以內</li><li>直接在終端即時繪圖與渲染介面，不依賴瀏覽器</li><li>每個能力先寫 spec 再實作，架構決策（Terminal UI、token budgeting、task contract、資料隱私）獨立留檔</li></ul></div>
+          <div><div class="project__title"><h3>AI 123</h3><span class="project__mark"><img src="assets/ai-123-mark.svg" width="512" height="512" alt="AI 123 標誌" decoding="async"></span></div><p>桌面上的個人 Jarvis：用語音跟它聊，它看得見你的畫面、動得了你的電腦，也記得你的個人資料。</p><ul class="project__points"><li>語音是雙向的：熱鍵開口說，24kHz 串流即時辨識，回覆直接用語音播出並同步上字幕</li><li>真的能操作這台電腦：點擊、拖曳、滾動、打字、開啟 App，並讀取前景視窗與焦點元素來決定往哪裡下手</li><li>看得見螢幕：擷取畫面與可存取性資訊作為判斷依據，不只依賴你打出來的字</li><li>個人記憶有生命週期：先抽出候選、經確認才寫入，可以取代或刪除，讓它知道你的習慣而不是亂記</li></ul></div>
         </article>
       </div>
     </section>
