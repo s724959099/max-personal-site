@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="王博生 Max Wang — Principal Engineer / Tech Lead，以系統解決真實的業務摩擦。">
+  <meta name="description" content="王博生 Max Wang — 10+ 年工程師，把混亂的營運與技術現場變成有人能接手的系統。">
   <meta name="theme-color" content="#b9cbc2">
   <title>王博生 Max Wang — Work index</title>
   <style>
@@ -169,16 +169,23 @@
     .project p { max-width: 720px; margin-top: var(--md); color: var(--ink-soft); font-size: 14px; }
     .project__proof { margin-top: var(--md); color: var(--accent-dark) !important; font-size: 12px !important; }
 
-    .background-index {
+    .skills-index { padding-bottom: var(--3xl); }
+    .skills {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, .9fr);
-      gap: var(--3xl);
-      padding: var(--3xl) 0 var(--xl);
-      border-top: .5px solid var(--ink);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 var(--3xl);
+      border-bottom: .5px solid var(--ink);
     }
-    .background-index h2 { margin-top: var(--sm); font: 400 30px / 1.1 var(--display); letter-spacing: -.035em; }
-    .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--lg) var(--xl); }
-    .skill h3 { margin-bottom: var(--xs); color: var(--accent-dark); font-size: 12px; font-weight: 500; }
+    .skill {
+      display: grid;
+      grid-template-columns: minmax(120px, .38fr) minmax(0, 1fr);
+      gap: var(--lg);
+      align-items: baseline;
+      padding: var(--lg) 0;
+      border-bottom: .5px solid color-mix(in srgb, var(--line) 72%, transparent);
+    }
+    .skill:nth-last-child(-n+2) { border-bottom: 0; }
+    .skill h3 { color: var(--accent-dark); font-size: 12px; font-weight: 500; }
     .skill p { color: var(--ink-soft); font-size: 13px; }
 
     .footer {
@@ -196,7 +203,10 @@
     .footer a:hover { color: var(--accent-dark); border-color: var(--ink); }
 
     @media (max-width: 900px) {
-      .masthead, .background-index { grid-template-columns: 1fr; gap: var(--xl); }
+      .masthead { grid-template-columns: 1fr; gap: var(--xl); }
+      .skills { grid-template-columns: minmax(0, 1fr); gap: 0; }
+      .skill:nth-last-child(-n+2) { border-bottom: .5px solid color-mix(in srgb, var(--line) 72%, transparent); }
+      .skill:last-child { border-bottom: 0; }
       .experience-entry { grid-template-columns: 32px minmax(110px, .48fr) minmax(0, 1fr); }
       .experience-entry__context, .experience-entry > p { grid-column: 3; }
     }
@@ -248,12 +258,11 @@
           <svg class="wordmark-brush" viewBox="0 0 390 12" preserveAspectRatio="none" aria-hidden="true"><path d="M10 6C62 5 108 7 158 6C212 5 274 7 332 6C354 5 371 6 380 6" stroke-dasharray="72 4 38 3 54 5 96 4 36 3" /></svg>
           <div class="wordmark-line wordmark-line--bottom"><svg class="wordmark-glyph" viewBox="50 252 145 120" aria-hidden="true"><path d="M68 274V355C68 361 74 363 79 355L120 305L161 355C166 363 172 361 172 355V274" /></svg><span class="wordmark-letters" aria-hidden="true">ang</span></div>
         </div>
-        <p class="section-label">About Me · small masthead</p>
+        <p class="section-label">About Me</p>
       </div>
       <div class="masthead__copy">
-        <h1 id="about-title">Principal Engineer / Tech Lead</h1>
+        <h1 id="about-title">王博生 Max Wang</h1>
         <p class="masthead__tagline">10+ 年工程師 — 我做的事，是讓混亂的營運與技術現場變得有人能接手。</p>
-        <p>王博生 Max Wang</p>
       </div>
     </header>
 
@@ -335,12 +344,12 @@
       </div>
     </section>
 
-    <section class="background-index" aria-labelledby="background-title">
-      <div>
-        <p class="section-label">Skills index</p>
-        <h2 id="background-title">常用的工具與技術棧</h2>
-      </div>
-      <div class="skills" aria-label="CakeResume 技能索引">
+    <section class="index-section skills-index" id="skills" aria-labelledby="skills-title">
+      <header class="index-section__head">
+        <h2 id="skills-title">Skills index</h2>
+        <p>常用的工具與技術棧 · six groups</p>
+      </header>
+      <div class="skills">
         <div class="skill"><h3>AI / LLM</h3><p>Multi-Agent 編排、LLM 應用整合、Prompt Engineering、本地／雲端模型部署</p></div>
         <div class="skill"><h3>後端</h3><p>Python、FastAPI、Django、系統架構設計</p></div>
         <div class="skill"><h3>前端</h3><p>TypeScript、React、Next.js</p></div>
@@ -351,7 +360,7 @@
     </section>
 
     <footer class="footer">
-      <span>© Max Wang · 王博生 · Principal Engineer / Tech Lead / FDE</span>
+      <span>© Max Wang · 王博生</span>
       <nav aria-label="外部個人連結">
         <a href="https://www.cake.me/resumes/s724959099">CakeResume ↗</a>
         <a href="https://github.com/s724959099">GitHub ↗</a>
