@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="ai-health-mark-title">
+  <title id="ai-health-mark-title">AI Health — 上行折線</title>
+  <defs>
+    <linearGradient id="ai-health-grad" x1="32" y1="16" x2="32" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E85F7"/>
+      <stop offset="1" stop-color="#9DC9FB"/>
+    </linearGradient>
+  </defs>
+  <path d="M14 47 L32 18 L50 47" fill="none" stroke="url(#ai-health-grad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
