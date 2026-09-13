@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" id="tg-v1" role="img" aria-labelledby="tg-v1-title">
+  <title id="tg-v1-title">tg-type — Wave → T（聲波化字）</title>
+  <style>
+    #tg-v1 { --tg-ink: #171B21; --tg-accent: #26786C; }
+    @media (prefers-color-scheme: dark) {
+      #tg-v1 { --tg-ink: #E7ECF1; --tg-accent: #5CC3B1; }
+    }
+  </style>
+  <g data-layer="1"><g><rect x="7" y="31" width="6" height="12" rx="3" fill="var(--tg-accent)"/><rect x="18" y="26" width="6" height="22" rx="3" fill="var(--tg-accent)"/><rect x="40" y="26" width="6" height="22" rx="3" fill="var(--tg-accent)"/><rect x="51" y="31" width="6" height="12" rx="3" fill="var(--tg-accent)"/></g></g>
+  <g data-layer="2"><rect x="7" y="10" width="50" height="8" rx="4" fill="var(--tg-ink)"/></g>
+  <g data-layer="3"><rect x="29" y="18" width="6" height="38" rx="3" fill="var(--tg-ink)"/></g>
+</svg>

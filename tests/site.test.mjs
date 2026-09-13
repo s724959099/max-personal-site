@@ -8,6 +8,7 @@ async function servePortfolio() {
     const paths = new Map([
       ["/", ["index.html", "text/html; charset=utf-8"]],
       ["/assets/max-wordmark.png", ["assets/max-wordmark.png", "image/png"]],
+      ["/assets/tg-type-mark.svg", ["assets/tg-type-mark.svg", "image/svg+xml"]],
     ]);
     const entry = paths.get(request.url);
     if (!entry) {
@@ -51,9 +52,15 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /<h1 id="about-title">王博生 Max Wang<\/h1>/);
   assert.doesNotMatch(page, /Proof ·/);
   assert.match(page, /<h3>TG-Type<\/h3>[\s\S]*?<ul class="project__points">[\s\S]*?macOS Vision[\s\S]*?每 6 小時掃一次/);
+  assert.match(page, /<div class="project__mark"><img src="assets\/tg-type-mark\.svg"[^>]*alt="TG-Type 標誌"/);
+  assert.doesNotMatch(page, /Quartz HID/);
 
   const wordmark = await fetch(`http://127.0.0.1:${port}/assets/max-wordmark.png`);
   assert.equal(wordmark.status, 200);
   assert.equal(wordmark.headers.get("content-type"), "image/png");
   assert.ok((await wordmark.arrayBuffer()).byteLength > 10_000);
+
+  const mark = await fetch(`http://127.0.0.1:${port}/assets/tg-type-mark.svg`);
+  assert.equal(mark.status, 200);
+  assert.match(await mark.text(), /<svg[\s\S]*<\/svg>/);
 });
