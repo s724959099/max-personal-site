@@ -11,6 +11,7 @@ async function servePortfolio() {
       ["/assets/tg-type-mark.svg", ["assets/tg-type-mark.svg", "image/svg+xml"]],
       ["/assets/ai-123-mark.svg", ["assets/ai-123-mark.svg", "image/svg+xml"]],
       ["/assets/ai-health-mark.svg", ["assets/ai-health-mark.svg", "image/svg+xml"]],
+      ["/assets/max-type-mark.png", ["assets/max-type-mark.png", "image/png"]],
     ]);
     const entry = paths.get(request.url);
     if (!entry) {
@@ -66,6 +67,14 @@ test("serves Max's Chinese portfolio landing page", async t => {
   assert.match(page, /<h3>AI Health<\/h3><span class="project__mark"><img src="assets\/ai-health-mark\.svg"[^>]*alt="AI Health 標誌"/);
   assert.match(page, /個人健身教練[\s\S]*?衛福部的食品營養成分資料庫[\s\S]*?基礎代謝[\s\S]*?找附近有什麼能吃/);
   assert.doesNotMatch(page, /條碼|智慧戒指|抽血報告/);
+  assert.match(page, /<h3>max-type<\/h3><span class="project__mark"><img src="assets\/max-type-mark\.png"[^>]*alt="max-type 標誌"/);
+  assert.match(page, /中英文不用切換[\s\S]*?只打聲母[\s\S]*?越用越準/);
+  assert.doesNotMatch(page, /InputMethodKit|假設|音節約束/);
+
+  const maxTypeMark = await fetch(`http://127.0.0.1:${port}/assets/max-type-mark.png`);
+  assert.equal(maxTypeMark.status, 200);
+  assert.equal(maxTypeMark.headers.get("content-type"), "image/png");
+  assert.ok((await maxTypeMark.arrayBuffer()).byteLength > 10_000);
 
   const wordmark = await fetch(`http://127.0.0.1:${port}/assets/max-wordmark.png`);
   assert.equal(wordmark.status, 200);
